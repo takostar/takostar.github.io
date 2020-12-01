@@ -81,9 +81,6 @@
 </blockquote>
 </li>
 </ul>
-<h2 id="关于文章">关于文章<a class="post-anchor" href="#关于文章"></a></h2><ul>
-<li>文章中的部分资源可能来源于互联网。如果侵犯了你的权利，请联系作者注明出处或删除。</li>
-</ul>
 <!--
  * @Author: tako star
  * @Date: 2020-02-04 15:47:05
@@ -128,10 +125,8 @@
 <li>以一个合格的程序员为目标努力中<br><a href="/2020/01301130/12218320_p0.jpg" data-caption="秋庭里香——仰望半月的夜空.jpg" data-fancybox="images"><img src="/2020/01301130/12218320_p0.jpg" alt="秋庭里香——仰望半月的夜空.jpg"></a></li>
 </ul>
 <h2 id="站点记录">站点记录<a class="post-anchor" href="#站点记录"></a></h2><p>本站于 <code class="site_from"></code> 接入百度站点，建站已 <code class="site_date"></code> 天</p>
-<p>截止到目前，整站访问次数 <code class="site_pv"></code>、访问人数 <code class="site_uv"></code></p>
-<h2 id="关于文章">关于文章<a class="post-anchor" href="#关于文章"></a></h2><ul>
-<li>文章中的部分资源可能来源于互联网。如果侵犯了你的权利，请联系作者注明出处或删除。</li>
-</ul>
+<!-- 截止到目前，整站访问次数 <code class="site_pv"></code>、访问人数 <code class="site_uv"></code> -->
+
 <!--
  * @Author: tako star
  * @Date: 2020-01-30 11:30:02
