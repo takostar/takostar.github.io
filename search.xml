@@ -6,7 +6,7 @@
     <content><![CDATA[<html><head></head><body><h2 id="以下为-mindmanager-的预览">以下为 mindmanager 的预览<a class="post-anchor" href="#以下为-mindmanager-的预览"></a></h2><!-- TODO:实现搜索框的按键展示(使用页面缩放?或者是弹性相应和直接style) -->
 
 <div class="post-mindmap">
-  <iframe class="mindmap" id="mindmap" src="git的一般使用流程图/git的一般使用流程图.html"></iframe>
+  <iframe class="mindmap" id="mindmap" src="/2020/03302317/git的一般使用流程图.html"></iframe>
   <div class="r">
   <span class="iconfont icon-close"></span>
     <div class="tip"></div>
@@ -33,11 +33,11 @@
   <entry>
     <title>Github仓库搜索技巧介绍</title>
     <url>/2020/02041547/</url>
-    <content><![CDATA[<html><head></head><body><h2 id="搜索关键词">搜索关键词<a class="post-anchor" href="#搜索关键词"></a></h2><h3 id="in-name">in:<a href="你要搜素的关键字">name</a><a class="post-anchor" href="#in-name"></a></h3><blockquote>
+    <content><![CDATA[<html><head></head><body><h2 id="搜索关键词">搜索关键词<a class="post-anchor" href="#搜索关键词"></a></h2><h3 id="in-name-keyword">in:name keyword<a class="post-anchor" href="#in-name-keyword"></a></h3><blockquote>
 <p>如 <code>in:name spring boot</code></p>
 </blockquote>
 <ul>
-<li>用上述方法可以迅速的找到自己想要的 github 项目<br><a href="https://cdn.jsdelivr.net/gh/takostar/takostar.github.io/2020/02041547/mindmap.png" data-caption="在项目描述中寻找关键词" 思维导图".png" data-fancybox="images"><img src="https://cdn.jsdelivr.net/gh/takostar/takostar.github.io/2020/02041547/mindmap.png" alt="在项目描述中寻找关键词" 思维导图".png"></a><br><a href="https://cdn.jsdelivr.net/gh/takostar/takostar.github.io/2020/02041547/note.png" data-caption="迅速寻找笔记.png" data-fancybox="images"><img src="https://cdn.jsdelivr.net/gh/takostar/takostar.github.io/2020/02041547/note.png" alt="迅速寻找笔记.png"></a></li>
+<li>用上述方法可以迅速的找到自己想要的 github 项目<br><a href="/2020/02041547/mindmap.png" data-caption="在项目描述中寻找关键词" 思维导图".png" data-fancybox="images"><img src="/2020/02041547/mindmap.png" alt="在项目描述中寻找关键词" 思维导图".png"></a><br><a href="/2020/02041547/note.png" data-caption="迅速寻找笔记.png" data-fancybox="images"><img src="/2020/02041547/note.png" alt="迅速寻找笔记.png"></a></li>
 </ul>
 <h4 id="其他关键词搜索目标">其他关键词搜索目标<a class="post-anchor" href="#其他关键词搜索目标"></a></h4><ul>
 <li>readme</li>
@@ -48,7 +48,7 @@
 <li>star</li>
 </ul>
 <blockquote>
-<p><a href="只保留标星数大于3000的Repo">如<code>stars:>300</code></a></p>
+<p>如<code>stars:>300</code></p>
 </blockquote>
 <ul>
 <li>language</li>
@@ -74,9 +74,10 @@
 <h2 id="更多搜索技巧和范围">更多搜索技巧和范围<a class="post-anchor" href="#更多搜索技巧和范围"></a></h2><ul>
 <li><p>不同筛选条件用空格间隔并列</p>
 </li>
-<li><p>更加详细的搜索方法可以在<a href="https://help.github.com/cn/github/searching-for-information-on-github/searching-on-github" target="_blank" rel="noopener">github 的官方使用帮助</a>上搜索获取更多种类的搜索方式<br><a href="https://cdn.jsdelivr.net/gh/takostar/takostar.github.io/2020/02041547/doc.png" data-caption="image.png" data-fancybox="images"><img src="https://cdn.jsdelivr.net/gh/takostar/takostar.github.io/2020/02041547/doc.png" alt="image.png"></a></p>
+<li><p>更加详细的搜索方法可以在<a href="https://help.github.com/cn/github/searching-for-information-on-github/searching-on-github" target="_blank" rel="noopener">github 的官方使用帮助</a>上搜索获取更多种类的搜索方式<br><a href="/2020/02041547/doc.png" data-caption="image.png" data-fancybox="images"><img src="/2020/02041547/doc.png" alt="image.png"></a></p>
+<p> 如根据帮助文档描述寻找住在北京的 github 用户：</p>
 <blockquote>
-<p>如根据帮助文档描述寻找住在北京的 github 用户：<br><code>location:beijing</code> > <a href="https://cdn.jsdelivr.net/gh/takostar/takostar.github.io/2020/02041547/location.png" data-caption="image.png" data-fancybox="images"><img src="https://cdn.jsdelivr.net/gh/takostar/takostar.github.io/2020/02041547/location.png" alt="image.png"></a></p>
+<p><code>location:beijing</code><br><a href="/2020/02041547/location.png" data-caption="image.png" data-fancybox="images"><img src="/2020/02041547/location.png" alt="image.png"></a></p>
 </blockquote>
 </li>
 </ul>
@@ -124,7 +125,7 @@
 </ol>
 <h2 id="关于我">关于我<a class="post-anchor" href="#关于我"></a></h2><ul>
 <li>男，ACGN 爱好者</li>
-<li>以一个合格的程序员为目标努力中<br><a href="https://cdn.jsdelivr.net/gh/takostar/takostar.github.io/2020/01301130/12218320_p0.jpg" data-caption="秋庭里香——仰望半月的夜空.jpg" data-fancybox="images"><img src="https://cdn.jsdelivr.net/gh/takostar/takostar.github.io/2020/01301130/12218320_p0.jpg" alt="秋庭里香——仰望半月的夜空.jpg"></a></li>
+<li>以一个合格的程序员为目标努力中<br><a href="/2020/01301130/12218320_p0.jpg" data-caption="秋庭里香——仰望半月的夜空.jpg" data-fancybox="images"><img src="/2020/01301130/12218320_p0.jpg" alt="秋庭里香——仰望半月的夜空.jpg"></a></li>
 </ul>
 <h2 id="站点记录">站点记录<a class="post-anchor" href="#站点记录"></a></h2><p>本站于 <code class="site_from"></code> 接入百度站点，建站已 <code class="site_date"></code> 天</p>
 <p>截止到目前，整站访问次数 <code class="site_pv"></code>、访问人数 <code class="site_uv"></code></p>
