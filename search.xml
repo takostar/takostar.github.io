@@ -1,12 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>IPFS简单教程</title>
+    <url>/2022/01291902/</url>
+    <content><![CDATA[<html><head></head><body><h2 id="安装">安装<a class="post-anchor" href="#安装"></a></h2><ul>
+<li><p><a href="https://docs.ipfs.io/install/ipfs-desktop/#install-instructions" target="_blank" rel="noopener">桌面版</a></p>
+</li>
+<li><p><a href="https://dist.ipfs.io/#go-ipfs" target="_blank" rel="noopener">命令行</a></p>
+</li>
+</ul>
+<h3 id="命令行安装">命令行安装<a class="post-anchor" href="#命令行安装"></a></h3><p><a href="https://docs.ipfs.io/install/command-line/#linux" target="_blank" rel="noopener">https://docs.ipfs.io/install/command-line/#linux</a></p>
+<h3 id="命令行初始化">命令行初始化<a class="post-anchor" href="#命令行初始化"></a></h3><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 以64bit为例(先参见上述安装命令进行安装)</span><br><br><span class="hljs-comment"># 在~目录下创建结点.ipfs目录</span><br>ipfs init<br><span class="hljs-comment"># 开启服务守护进程</span><br>ipfs daemon<br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="网关">网关<a class="post-anchor" href="#网关"></a></h2><h3 id="WebUI">WebUI<a class="post-anchor" href="#WebUI"></a></h3><p><a href="http://127.0.0.1:5001/webui" target="_blank" rel="noopener">http://127.0.0.1:5001/webui</a></p>
+<h3 id="Gateway-网关">Gateway 网关<a class="post-anchor" href="#Gateway-网关"></a></h3><p><a href="http://127.0.0.1:8080" target="_blank" rel="noopener">http://127.0.0.1:8080</a></p>
+<h3 id="HTTP-API">HTTP API<a class="post-anchor" href="#HTTP-API"></a></h3><p><a href="http://127.0.0.1:5001" target="_blank" rel="noopener">http://127.0.0.1:5001</a></p>
+<h3 id="向外网开放-WebUI，Gateway-或-HTTP-API">向外网开放 WebUI，Gateway 或 HTTP API<a class="post-anchor" href="#向外网开放-WebUI，Gateway-或-HTTP-API"></a></h3><ul>
+<li>更改设置，将目标项的地址由 <strong>127.0.0.1</strong> 更改为 <strong>0.0.0.0</strong></li>
+<li>开放 WebUI 和 HTTP API，更改<strong>API</strong></li>
+<li>开放网关，更改<strong>Gateway</strong><blockquote>
+<ul>
+<li>通过图形界面<br><a href="images/desktop-config.png" data-caption="通过图形界面" data-fancybox="images"><img src="images/desktop-config.png" alt="通过图形界面"></a></li>
+<li>对于命令行，更改用户目录下~/.ipfs/config，或运行</li>
+</ul>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">export</span> EDITOR=/usr/bin/vim<br>ipfs config edit<br></code></pre></td></tr></tbody></table></figure>
+</blockquote>
+</li>
+</ul>
+<h2 id="文件添加">文件添加<a class="post-anchor" href="#文件添加"></a></h2><h3 id="命令行">命令行<a class="post-anchor" href="#命令行"></a></h3><figure class="highlight sh"><table><tbody><tr><td class="code"><pre><code class="hljs sh"><span class="hljs-built_in">echo</span> <span class="hljs-string">"test command line"</span> &gt; command.txt<br>ipfs add command.txt<br><span class="hljs-comment"># 返回 added QmXWrM5PCU1jcZ6xBoLxZ2uXxuWmBRdoJcoe9pNP4yGBKa command.txt</span><br>ipfs cat QmXWrM5PCU1jcZ6xBoLxZ2uXxuWmBRdoJcoe9pNP4yGBKa<br><span class="hljs-comment"># 返回 test command line</span><br></code></pre></td></tr></tbody></table></figure>
+
+<h3 id="POSTMAN">POSTMAN<a class="post-anchor" href="#POSTMAN"></a></h3><ol>
+<li><p>在<strong>C:\Users\&lt;你的用户名&gt;\Postman\files</strong>下创建<strong>postman.txt</strong>，写入 test postman</p>
+</li>
+<li><p>在表单中选择 postman 文件目录下的文件，参数设为 file</p>
+</li>
+<li><p>点击<strong>Send</strong></p>
+</li>
+</ol>
+<p><a href="images/postman.png" data-caption="postman" data-fancybox="images"><img src="images/postman.png" alt="postman"></a></p>
+<h3 id="JAVA-demo">JAVA demo<a class="post-anchor" href="#JAVA-demo"></a></h3><p><a href="ipfs-demo/src/main/java/com/hncfx/api/ADD.java">以 okhttp 为例</a></p>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><code class="hljs java">RequestBody body = <span class="hljs-keyword">new</span> MultipartBody.Builder().setType(MultipartBody.FORM)<br>                <span class="hljs-comment">// 使用file为表单键上传文件</span><br>                .addFormDataPart(<span class="hljs-string">"file"</span>, file.getName(), filebody)<br>                .build();<br>Request request = <span class="hljs-keyword">new</span> Request.Builder()<br>                .url(<span class="hljs-string">"http://127.0.0.1:5001/api/v0/add"</span>)<br>                .method(<span class="hljs-string">"POST"</span>, body)<br>                .build();<br>Response response = client.newCall(request).execute();<br></code></pre></td></tr></tbody></table></figure>
+
+<h2 id="文件查看">文件查看<a class="post-anchor" href="#文件查看"></a></h2><ul>
+<li>desktop 上通过 qmhash 查看<br><a href="images/desktop-view.png" data-caption="qmhash" data-fancybox="images"><img src="images/desktop-view.png" alt="qmhash"></a></li>
+<li><a href="https://ipfs.io/ipfs/QmQ9t2hmjjfBgDYvvTmBu2aDt6ZeVWDKLnMtP3ic6RWSDz" target="_blank" rel="noopener">通过网关访问</a><blockquote>
+<p><a href="https://ipfs.github.io/public-gateway-checker/" target="_blank" rel="noopener">公共网关</a></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="常用命令">常用命令<a class="post-anchor" href="#常用命令"></a></h2><ul>
+<li><p><strong>ipfs add</strong> 添加文件</p>
+</li>
+<li><p><strong>ipfs cat</strong> 打印文件</p>
+</li>
+<li><p><strong>ipfs config show</strong> 显示设置</p>
+</li>
+<li><p><strong>ipfs pin ls</strong> 显示本地持久化文档(通过 add 添加的默认为本地持久化的)</p>
+</li>
+</ul>
+<h2 id="参考">参考<a class="post-anchor" href="#参考"></a></h2><p><a href="https://www.jianshu.com/p/48a2739bade2" target="_blank" rel="noopener">IPFS 开发简介与入门实战 - 简书</a></p>
+<p><a href="https://github.com/miaoski/ipfs-tutorial" target="_blank" rel="noopener">miaoski/ipfs-tutorial: IPFS 筆記和教學 (繁體中文)</a></p>
+<p><a href="https://docs.ipfs.io/" target="_blank" rel="noopener">IPFS Documentation | IPFS Docs</a></p>
+<p><a href="http://cw.hubwiz.com/card/c/ipfs/1/1/1/" target="_blank" rel="noopener">ipfs命令手册</a></p>
+</body></html>]]></content>
+      <categories>
+        <category>笔记</category>
+      </categories>
+      <tags>
+        <tag>区块链</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git的一般使用流程图</title>
     <url>/2020/03302317/</url>
     <content><![CDATA[<html><head></head><body><h2 id="以下为-mindmanager-的预览">以下为 mindmanager 的预览<a class="post-anchor" href="#以下为-mindmanager-的预览"></a></h2><!-- TODO:实现搜索框的按键展示(使用页面缩放?或者是弹性相应和直接style) -->
 
 <div class="post-mindmap">
-  <iframe class="mindmap" id="mindmap" src="/2020/03302317/git的一般使用流程图.html"></iframe>
+  <iframe class="mindmap" id="mindmap" src="git的一般使用流程图.html"></iframe>
   <div class="r">
   <span class="iconfont icon-close"></span>
     <div class="tip"></div>
@@ -37,7 +107,7 @@
 <p>如 <code>in:name spring boot</code></p>
 </blockquote>
 <ul>
-<li>用上述方法可以迅速的找到自己想要的 github 项目<br><a href="/2020/02041547/mindmap.png" data-caption="在项目描述中寻找关键词" 思维导图".png" data-fancybox="images"><img src="/2020/02041547/mindmap.png" alt="在项目描述中寻找关键词" 思维导图".png"></a><br><a href="/2020/02041547/note.png" data-caption="迅速寻找笔记.png" data-fancybox="images"><img src="/2020/02041547/note.png" alt="迅速寻找笔记.png"></a></li>
+<li>用上述方法可以迅速的找到自己想要的 github 项目<br><a href="/2020/02041547/mindmap.png" data-caption="在项目描述中寻找关键词" 思维导图".png"="" data-fancybox="images"><img src="/2020/02041547/mindmap.png" alt="在项目描述中寻找关键词" 思维导图".png"=""></a><br><a href="/2020/02041547/note.png" data-caption="迅速寻找笔记.png" data-fancybox="images"><img src="/2020/02041547/note.png" alt="迅速寻找笔记.png"></a></li>
 </ul>
 <h4 id="其他关键词搜索目标">其他关键词搜索目标<a class="post-anchor" href="#其他关键词搜索目标"></a></h4><ul>
 <li>readme</li>
@@ -48,7 +118,7 @@
 <li>star</li>
 </ul>
 <blockquote>
-<p>如<code>stars:>300</code></p>
+<p>如<code>stars:&gt;300</code></p>
 </blockquote>
 <ul>
 <li>language</li>
@@ -60,13 +130,13 @@
 <li>fork</li>
 </ul>
 <blockquote>
-<p>如<code>fork:>300</code></p>
+<p>如<code>fork:&gt;300</code></p>
 </blockquote>
 <ul>
 <li>pushed</li>
 </ul>
 <blockquote>
-<p>如<code>pushed:>2019-2-3</code></p>
+<p>如<code>pushed:&gt;2019-2-3</code></p>
 </blockquote>
 <ul>
 <li>……</li>

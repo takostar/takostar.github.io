@@ -78,7 +78,7 @@ define(['jquery', 'util'], function($, util) {
             for (let i = 0; i < result.length; i++) {
               let _img = ''
               if (result[i].photos.length > 0) {
-                _img = _img_temp.replace('{IMG}', result[i].photos[0])
+                _img = _img_temp.replace('{IMG}',result[i].path + result[i].photos[0])
               }
 
               _li += _temp

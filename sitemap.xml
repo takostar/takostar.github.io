@@ -2,45 +2,119 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://takostar.github.io/2020/01301130/</loc>
+    <loc>https://takostar.github.io/2022/01291902/</loc>
     
-    <lastmod>2020-12-01T09:48:24.861Z</lastmod>
+    <lastmod>2022-01-29</lastmod>
     
-  </url>
-  
-  <url>
-    <loc>https://takostar.github.io/2020/02041547/</loc>
-    
-    <lastmod>2020-12-01T09:30:25.953Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://takostar.github.io/2020/03302317/</loc>
-    
-    <lastmod>2020-11-30T14:28:01.193Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://takostar.github.io/tags/index.html</loc>
-    
-    <lastmod>2020-01-31T02:53:33.467Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://takostar.github.io/friends/index.html</loc>
-    
-    <lastmod>2020-01-31T02:17:19.399Z</lastmod>
-    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://takostar.github.io/categories/index.html</loc>
     
-    <lastmod>2020-01-31T02:17:01.443Z</lastmod>
+    <lastmod>2022-01-29</lastmod>
     
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://takostar.github.io/friends/index.html</loc>
+    
+    <lastmod>2022-01-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://takostar.github.io/tags/index.html</loc>
+    
+    <lastmod>2022-01-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://takostar.github.io/2020/01301130/</loc>
+    
+    <lastmod>2022-01-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://takostar.github.io/2020/03302317/</loc>
+    
+    <lastmod>2022-01-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://takostar.github.io/2020/02041547/</loc>
+    
+    <lastmod>2022-01-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  <url>
+    <loc>https://takostar.github.io/</loc>
+    <lastmod>2022-01-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://takostar.github.io/tags/Github/</loc>
+    <lastmod>2022-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://takostar.github.io/tags/%E6%A2%A6%E5%91%93/</loc>
+    <lastmod>2022-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://takostar.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</loc>
+    <lastmod>2022-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>https://takostar.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2022-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://takostar.github.io/categories/%E5%85%B3%E9%94%AE%E6%B4%BB%E5%8A%A8/</loc>
+    <lastmod>2022-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://takostar.github.io/categories/%E5%AF%BC%E5%9B%BE/</loc>
+    <lastmod>2022-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
   </url>
   
 </urlset>
