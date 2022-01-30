@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://takostar.github.io/"/>
+  <link href="https://takostar.net/"/>
   <updated>2022-01-29T11:11:20.075Z</updated>
-  <id>https://takostar.github.io/</id>
+  <id>https://takostar.net/</id>
   
   <author>
     <name>Tako</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>IPFS简单教程</title>
-    <link href="https://takostar.github.io/2022/01291902/"/>
-    <id>https://takostar.github.io/2022/01291902/</id>
+    <link href="https://takostar.net/2022/01291902/"/>
+    <id>https://takostar.net/2022/01291902/</id>
     <published>2022-01-29T11:02:59.000Z</published>
     <updated>2022-01-29T11:11:20.075Z</updated>
     
@@ -36,17 +36,17 @@
     </summary>
     
     
-      <category term="笔记" scheme="https://takostar.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://takostar.net/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="区块链" scheme="https://takostar.github.io/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
+      <category term="区块链" scheme="https://takostar.net/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>
     
   </entry>
   
   <entry>
     <title>Git的一般使用流程图</title>
-    <link href="https://takostar.github.io/2020/03302317/"/>
-    <id>https://takostar.github.io/2020/03302317/</id>
+    <link href="https://takostar.net/2020/03302317/"/>
+    <id>https://takostar.net/2020/03302317/</id>
     <published>2020-03-30T15:17:38.000Z</published>
     <updated>2022-01-29T09:25:09.988Z</updated>
     
@@ -62,15 +62,15 @@
     </summary>
     
     
-      <category term="导图" scheme="https://takostar.github.io/categories/%E5%AF%BC%E5%9B%BE/"/>
+      <category term="导图" scheme="https://takostar.net/categories/%E5%AF%BC%E5%9B%BE/"/>
     
     
   </entry>
   
   <entry>
     <title>Github仓库搜索技巧介绍</title>
-    <link href="https://takostar.github.io/2020/02041547/"/>
-    <id>https://takostar.github.io/2020/02041547/</id>
+    <link href="https://takostar.net/2020/02041547/"/>
+    <id>https://takostar.net/2020/02041547/</id>
     <published>2020-02-04T07:47:04.000Z</published>
     <updated>2022-01-29T09:25:09.986Z</updated>
     
@@ -86,17 +86,17 @@
     </summary>
     
     
-      <category term="笔记" scheme="https://takostar.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+      <category term="笔记" scheme="https://takostar.net/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="Github" scheme="https://takostar.github.io/tags/Github/"/>
+      <category term="Github" scheme="https://takostar.net/tags/Github/"/>
     
   </entry>
   
   <entry>
     <title>我的博客建立成功！</title>
-    <link href="https://takostar.github.io/2020/01301130/"/>
-    <id>https://takostar.github.io/2020/01301130/</id>
+    <link href="https://takostar.net/2020/01301130/"/>
+    <id>https://takostar.net/2020/01301130/</id>
     <published>2020-01-30T03:30:02.000Z</published>
     <updated>2022-01-29T09:25:10.001Z</updated>
     
@@ -114,10 +114,10 @@
     </summary>
     
     
-      <category term="关键活动" scheme="https://takostar.github.io/categories/%E5%85%B3%E9%94%AE%E6%B4%BB%E5%8A%A8/"/>
+      <category term="关键活动" scheme="https://takostar.net/categories/%E5%85%B3%E9%94%AE%E6%B4%BB%E5%8A%A8/"/>
     
     
-      <category term="梦呓" scheme="https://takostar.github.io/tags/%E6%A2%A6%E5%91%93/"/>
+      <category term="梦呓" scheme="https://takostar.net/tags/%E6%A2%A6%E5%91%93/"/>
     
   </entry>
   
