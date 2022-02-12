@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://takostar.net/"/>
-  <updated>2022-02-12T14:37:29.478Z</updated>
+  <updated>2022-02-12T15:17:48.107Z</updated>
   <id>https://takostar.net/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://takostar.net/2022/02122235/"/>
     <id>https://takostar.net/2022/02122235/</id>
     <published>2022-02-12T14:35:51.000Z</published>
-    <updated>2022-02-12T14:37:29.478Z</updated>
+    <updated>2022-02-12T15:17:48.107Z</updated>
     
     <content type="html"><![CDATA[<html><head></head><body><h2 id="以下为-mindmanager-的预览">以下为 mindmanager 的预览<a class="post-anchor" href="#以下为-mindmanager-的预览"></a></h2><div class="post-mindmap">  <iframe class="mindmap" id="mindmap" src="区块链 - 技术 - 共识算法(机制).html"></iframe>  <div class="r">  <span class="iconfont icon-close"></span>    <div class="tip"></div>    <a class="fullscreen-button">Full Screen</a></div></div>  <script type="text/javascript">    var sonWidth = document.getElementById("mindmap").offsetWidth;    document.getElementById("mindmap").style.height = sonWidth * 0.7 + "px";</script></body></html>]]></content>
     
