@@ -1961,15 +1961,18 @@ a {
   line-height: 1.5rem;
   border-left: 0.45rem solid #1e88e5;
 }
-@font-face {font-family: "iconfont";
-  src: url('/style/iconfont/iconfont.eot'); /* IE9 */
-  src: url('/style/iconfont/iconfont.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */ url('/style/iconfont/iconfont.woff2') format('woff2'),
-    /* chrome、firefox、opera、Safari, Android, iOS */ url('iconfont.woff')
-      format('woff'),
-    /* chrome、firefox */ url('/style/iconfont/iconfont.ttf') format('truetype'),
-    /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
-      url('/style/iconfont/iconfont.svg#uxiconfont') format('svg'); /* iOS 4.1- */
+/**
+ * @file icon.css
+ */
+
+@font-face {
+    font-family: "iconfont";
+    src: url("iconfont.eot"); /* IE9 */
+    src: url("iconfont.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("iconfont.woff2") format("woff2"), /* chrome、firefox、opera、Safari, Android, iOS */
+    url("iconfont.woff") format("woff"), /* chrome、firefox */
+    url("iconfont.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+ */
+    url("iconfont.svg#uxfonteditor") format("svg"); /* iOS 4.1- */
 }
 .iconfont {
   font-family: "iconfont" !important;
@@ -2105,6 +2108,10 @@ a {
 }
 .icon-cloudmusic:before {
   content: "\e884";
+}
+
+.icon-leetcode:before {
+  content: "\e886";
 }
 .overflow {
   overflow: hidden;
