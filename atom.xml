@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://takostar.net/"/>
-  <updated>2022-02-12T03:50:19.013Z</updated>
+  <updated>2022-02-12T08:13:59.357Z</updated>
   <id>https://takostar.net/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://takostar.net/2022/02121133/"/>
     <id>https://takostar.net/2022/02121133/</id>
     <published>2022-02-12T03:33:34.000Z</published>
-    <updated>2022-02-12T03:50:19.013Z</updated>
+    <updated>2022-02-12T08:13:59.357Z</updated>
     
     <content type="html"><![CDATA[<html><head></head><body><h2 id="以下为-mindmanager-的预览">以下为 mindmanager 的预览<a class="post-anchor" href="#以下为-mindmanager-的预览"></a></h2><!-- TODO:实现搜索框的按键展示(使用页面缩放?或者是弹性相应和直接style) --><div class="post-mindmap">  <iframe class="mindmap" id="mindmap" src="区块链 - 分类.html"></iframe>  <div class="r">  <span class="iconfont icon-close"></span>    <div class="tip"></div>    <a class="fullscreen-button">Full Screen</a></div></div>  <script type="text/javascript">    var sonWidth = document.getElementById("mindmap").offsetWidth;    document.getElementById("mindmap").style.height = sonWidth * 0.7 + "px";</script></body></html>]]></content>
     
@@ -35,9 +35,9 @@
     </summary>
     
     
-      <category term="导图" scheme="https://takostar.net/categories/%E5%AF%BC%E5%9B%BE/"/>
+      <category term="笔记" scheme="https://takostar.net/categories/%E7%AC%94%E8%AE%B0/"/>
     
-      <category term="笔记" scheme="https://takostar.net/categories/%E5%AF%BC%E5%9B%BE/%E7%AC%94%E8%AE%B0/"/>
+      <category term="导图" scheme="https://takostar.net/categories/%E5%AF%BC%E5%9B%BE/"/>
     
     
       <category term="区块链" scheme="https://takostar.net/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/"/>

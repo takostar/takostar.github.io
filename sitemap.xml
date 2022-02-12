@@ -126,11 +126,4 @@
     <priority>0.2</priority>
   </url>
   
-  <url>
-    <loc>https://takostar.net/categories/%E5%AF%BC%E5%9B%BE/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-02-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
 </urlset>

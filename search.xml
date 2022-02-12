@@ -18,8 +18,8 @@
     document.getElementById("mindmap").style.height = sonWidth * 0.7 + "px";
 </script></body></html>]]></content>
       <categories>
-        <category>导图</category>
         <category>笔记</category>
+        <category>导图</category>
       </categories>
       <tags>
         <tag>区块链</tag>
