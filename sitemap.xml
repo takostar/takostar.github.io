@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://takostar.net/2022/02212221/</loc>
+    
+    <lastmod>2022-02-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://takostar.net/2022/02122235/</loc>
     
     <lastmod>2022-02-12</lastmod>
@@ -38,15 +47,6 @@
   </url>
   
   <url>
-    <loc>https://takostar.net/friends/index.html</loc>
-    
-    <lastmod>2022-01-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://takostar.net/categories/index.html</loc>
     
     <lastmod>2022-01-29</lastmod>
@@ -57,6 +57,15 @@
   
   <url>
     <loc>https://takostar.net/tags/index.html</loc>
+    
+    <lastmod>2022-01-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://takostar.net/friends/index.html</loc>
     
     <lastmod>2022-01-29</lastmod>
     
@@ -85,7 +94,7 @@
 
   <url>
     <loc>https://takostar.net/</loc>
-    <lastmod>2022-02-14</lastmod>
+    <lastmod>2022-02-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -93,21 +102,28 @@
   
   <url>
     <loc>https://takostar.net/tags/Github/</loc>
-    <lastmod>2022-02-14</lastmod>
+    <lastmod>2022-02-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://takostar.net/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</loc>
-    <lastmod>2022-02-14</lastmod>
+    <lastmod>2022-02-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://takostar.net/tags/%E9%89%B4%E6%9D%83/</loc>
+    <lastmod>2022-02-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://takostar.net/tags/%E6%A2%A6%E5%91%93/</loc>
-    <lastmod>2022-02-14</lastmod>
+    <lastmod>2022-02-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -116,21 +132,21 @@
   
   <url>
     <loc>https://takostar.net/categories/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2022-02-14</lastmod>
+    <lastmod>2022-02-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://takostar.net/categories/%E7%AC%94%E8%AE%B0/%E5%AF%BC%E5%9B%BE/</loc>
-    <lastmod>2022-02-14</lastmod>
+    <lastmod>2022-02-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://takostar.net/categories/%E5%85%B3%E9%94%AE%E6%B4%BB%E5%8A%A8/</loc>
-    <lastmod>2022-02-14</lastmod>
+    <lastmod>2022-02-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

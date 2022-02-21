@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>RBAC权限模型 - 基于角色的访问控制</title>
+    <url>/2022/02212221/</url>
+    <content><![CDATA[<html><head></head><body><h2 id="以下为-mindmanager-的预览">以下为 mindmanager 的预览<a class="post-anchor" href="#以下为-mindmanager-的预览"></a></h2><!-- TODO:实现搜索框的按键展示(使用页面缩放?或者是弹性相应和直接style) -->
+
+<div class="post-mindmap">
+  <iframe class="mindmap" id="mindmap" src="RBAC权限模型 - 基于角色的访问控制.html"></iframe>
+  <div class="r">
+  <span class="iconfont icon-close"></span>
+    <div class="tip"></div>
+    <a class="fullscreen-button">Full Screen</a>
+</div>
+</div>
+  <script type="text/javascript">
+    var sonWidth = document.getElementById("mindmap").offsetWidth;
+    document.getElementById("mindmap").style.height = sonWidth * 0.7 + "px";
+</script></body></html>]]></content>
+      <categories>
+        <category>笔记</category>
+        <category>导图</category>
+      </categories>
+      <tags>
+        <tag>鉴权</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>区块链共识算法分类总结</title>
     <url>/2022/02122235/</url>
     <content><![CDATA[<html><head></head><body><h2 id="以下为-mindmanager-的预览">以下为 mindmanager 的预览<a class="post-anchor" href="#以下为-mindmanager-的预览"></a></h2><div class="post-mindmap">

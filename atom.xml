@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://takostar.net/"/>
-  <updated>2022-02-12T15:17:48.107Z</updated>
+  <updated>2022-02-21T14:26:50.685Z</updated>
   <id>https://takostar.net/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>RBAC权限模型 - 基于角色的访问控制</title>
+    <link href="https://takostar.net/2022/02212221/"/>
+    <id>https://takostar.net/2022/02212221/</id>
+    <published>2022-02-21T14:21:24.000Z</published>
+    <updated>2022-02-21T14:26:50.685Z</updated>
+    
+    <content type="html"><![CDATA[<html><head></head><body><h2 id="以下为-mindmanager-的预览">以下为 mindmanager 的预览<a class="post-anchor" href="#以下为-mindmanager-的预览"></a></h2><!-- TODO:实现搜索框的按键展示(使用页面缩放?或者是弹性相应和直接style) --><div class="post-mindmap">  <iframe class="mindmap" id="mindmap" src="RBAC权限模型 - 基于角色的访问控制.html"></iframe>  <div class="r">  <span class="iconfont icon-close"></span>    <div class="tip"></div>    <a class="fullscreen-button">Full Screen</a></div></div>  <script type="text/javascript">    var sonWidth = document.getElementById("mindmap").offsetWidth;    document.getElementById("mindmap").style.height = sonWidth * 0.7 + "px";</script></body></html>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;h2 id=&quot;以下为-mindmanager-的预览&quot;&gt;以下为 mindmanager 的预览&lt;a class=&quot;post-anchor&quot; href=&quot;#以下为-mindmanager-的预览&quot;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;!-- TO
+      
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="https://takostar.net/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+      <category term="导图" scheme="https://takostar.net/categories/%E7%AC%94%E8%AE%B0/%E5%AF%BC%E5%9B%BE/"/>
+    
+    
+      <category term="鉴权" scheme="https://takostar.net/tags/%E9%89%B4%E6%9D%83/"/>
+    
+  </entry>
   
   <entry>
     <title>区块链共识算法分类总结</title>
