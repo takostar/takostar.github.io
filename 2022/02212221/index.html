@@ -49,7 +49,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
     <div id="post-toc" class="animated hiddenToc hide">
       <span class="title">Toc</span>
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#以下为-mindmanager-的预览"><span class="toc-text">以下为 mindmanager 的预览</span></a></li></ol>
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#以下为-mindmanager-的预览"><span class="toc-text">以下为 mindmanager 的预览</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#RABC"><span class="toc-text">RABC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#概述"><span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#权限管理模型"><span class="toc-text">权限管理模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RBAC（Role-Based-Access-Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般都是多对多的关系。"><span class="toc-text">RBAC（Role-Based Access Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般都是多对多的关系。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RBAC是一套成熟的权限模型。在传统权限模型中，我们直接把权限赋予用户。而在RBAC中，增加了“角色”的概念，我们首先把权限赋予角色，再把角色赋予用户。这样，由于增加了角色，授权会更加灵活方便。"><span class="toc-text">RBAC是一套成熟的权限模型。在传统权限模型中，我们直接把权限赋予用户。而在RBAC中，增加了“角色”的概念，我们首先把权限赋予角色，再把角色赋予用户。这样，由于增加了角色，授权会更加灵活方便。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在RBAC中，根据权限的复杂程度，又可分为RBAC0、RBAC1、RBAC2、RBAC3。其中，RBAC0是基础，RBAC1、RBAC2、RBAC3都是以RBAC0为基础的升级。我们可以根据自家产品权限的复杂程度，选取适合的权限模型。"><span class="toc-text">在RBAC中，根据权限的复杂程度，又可分为RBAC0、RBAC1、RBAC2、RBAC3。其中，RBAC0是基础，RBAC1、RBAC2、RBAC3都是以RBAC0为基础的升级。我们可以根据自家产品权限的复杂程度，选取适合的权限模型。</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#RBAC-认为授权实际上是Who-、What-、How-三元组之间的关系，也就是Who-对What-进行How-的操作，也就是“主体”对“客体”的操作。"><span class="toc-text">RBAC  认为授权实际上是Who 、What 、How 三元组之间的关系，也就是Who 对What 进行How 的操作，也就是“主体”对“客体”的操作。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#组成"><span class="toc-text">组成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#User"><span class="toc-text">User</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Role"><span class="toc-text">Role</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Resource-Permission"><span class="toc-text">Resource(Permission)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#扩展"><span class="toc-text">扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#用户组"><span class="toc-text">用户组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#菜单"><span class="toc-text">菜单</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分类"><span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本模型RBAC0"><span class="toc-text">基本模型RBAC0</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#角色分层模型RBAC1"><span class="toc-text">角色分层模型RBAC1</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#角色限制模型RBAC2"><span class="toc-text">角色限制模型RBAC2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#统一模型RBAC3"><span class="toc-text">统一模型RBAC3</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基于RBAC的延展——用户组"><span class="toc-text">基于RBAC的延展——用户组</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#实例"><span class="toc-text">实例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#实体"><span class="toc-text">实体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#关系"><span class="toc-text">关系</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#其他"><span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ABAC"><span class="toc-text">ABAC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基于属性的权限验证（ABAC-Attribute-Based-Access-Control）"><span class="toc-text">基于属性的权限验证（ABAC: Attribute-Based Access Control）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DAC"><span class="toc-text">DAC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#案例"><span class="toc-text">案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#自主访问控制（DAC-Discretionary-Access-Control）"><span class="toc-text">自主访问控制（DAC: Discretionary Access Control）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MAC"><span class="toc-text">MAC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#强制访问控制（MAC-Mandatory-Access-Control）"><span class="toc-text">强制访问控制（MAC: Mandatory Access Control）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#案例-1"><span class="toc-text">案例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#要素"><span class="toc-text">要素</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SAM"><span class="toc-text">SAM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SAM-Security-Access-Manager"><span class="toc-text">SAM(Security Access Manager)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#有赞"><span class="toc-text">有赞</span></a></li></ol></li></ol>
     </div>
     
     <div id="fixed-menu-wrap">
@@ -219,11 +219,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <span>
               
                 
-                  <a href="https://takostar.net/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
+                  <a href="http://takostar.net/categories/%E7%AC%94%E8%AE%B0/">笔记</a>
                 
               
                 
-                  <a href="https://takostar.net/categories/%E7%AC%94%E8%AE%B0/%E5%AF%BC%E5%9B%BE/">导图</a>
+                  <a href="http://takostar.net/categories/%E7%AC%94%E8%AE%B0/%E5%AF%BC%E5%9B%BE/">导图</a>
                 
               
           </span>
@@ -259,7 +259,220 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script type="text/javascript">
     var sonWidth = document.getElementById("mindmap").offsetWidth;
     document.getElementById("mindmap").style.height = sonWidth * 0.7 + "px";
-</script></body></html>
+</script>
+
+
+<h1 id="RABC">RABC<a class="post-anchor" href="#RABC"></a></h1><h2 id="概述">概述<a class="post-anchor" href="#概述"></a></h2><h3 id="权限管理模型">权限管理模型<a class="post-anchor" href="#权限管理模型"></a></h3><h3 id="RBAC（Role-Based-Access-Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般都是多对多的关系。">RBAC（Role-Based Access Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般都是多对多的关系。<a class="post-anchor" href="#RBAC（Role-Based-Access-Control，基于角色的访问控制），就是用户通过角色与权限进行关联。简单地说，一个用户拥有若干角色，每一个角色拥有若干权限。这样，就构造成“用户-角色-权限”的授权模型。在这种模型中，用户与角色之间，角色与权限之间，一般都是多对多的关系。"></a></h3><ul>
+<li>……</li>
+</ul>
+<h3 id="RBAC是一套成熟的权限模型。在传统权限模型中，我们直接把权限赋予用户。而在RBAC中，增加了“角色”的概念，我们首先把权限赋予角色，再把角色赋予用户。这样，由于增加了角色，授权会更加灵活方便。">RBAC是一套成熟的权限模型。在传统权限模型中，我们直接把权限赋予用户。而在RBAC中，增加了“角色”的概念，我们首先把权限赋予角色，再把角色赋予用户。这样，由于增加了角色，授权会更加灵活方便。<a class="post-anchor" href="#RBAC是一套成熟的权限模型。在传统权限模型中，我们直接把权限赋予用户。而在RBAC中，增加了“角色”的概念，我们首先把权限赋予角色，再把角色赋予用户。这样，由于增加了角色，授权会更加灵活方便。"></a></h3><h3 id="在RBAC中，根据权限的复杂程度，又可分为RBAC0、RBAC1、RBAC2、RBAC3。其中，RBAC0是基础，RBAC1、RBAC2、RBAC3都是以RBAC0为基础的升级。我们可以根据自家产品权限的复杂程度，选取适合的权限模型。">在RBAC中，根据权限的复杂程度，又可分为RBAC0、RBAC1、RBAC2、RBAC3。其中，RBAC0是基础，RBAC1、RBAC2、RBAC3都是以RBAC0为基础的升级。我们可以根据自家产品权限的复杂程度，选取适合的权限模型。<a class="post-anchor" href="#在RBAC中，根据权限的复杂程度，又可分为RBAC0、RBAC1、RBAC2、RBAC3。其中，RBAC0是基础，RBAC1、RBAC2、RBAC3都是以RBAC0为基础的升级。我们可以根据自家产品权限的复杂程度，选取适合的权限模型。"></a></h3><h3 id="RBAC-认为授权实际上是Who-、What-、How-三元组之间的关系，也就是Who-对What-进行How-的操作，也就是“主体”对“客体”的操作。">RBAC  认为授权实际上是Who 、What 、How 三元组之间的关系，也就是Who 对What 进行How 的操作，也就是“主体”对“客体”的操作。<a class="post-anchor" href="#RBAC-认为授权实际上是Who-、What-、How-三元组之间的关系，也就是Who-对What-进行How-的操作，也就是“主体”对“客体”的操作。"></a></h3><ul>
+<li><p>Who：是权限的拥有者或主体（如：User，Role）。</p>
+</li>
+<li><p>What：是操作或对象（operation，object）。</p>
+</li>
+<li><p>How：具体的权限（Privilege,正向授权与负向授权）。</p>
+</li>
+</ul>
+<h2 id="组成">组成<a class="post-anchor" href="#组成"></a></h2><h3 id="User">User<a class="post-anchor" href="#User"></a></h3><ul>
+<li>用户</li>
+</ul>
+<h3 id="Role">Role<a class="post-anchor" href="#Role"></a></h3><ul>
+<li><p>角色</p>
+</li>
+<li><p>分类</p>
+<ul>
+<li><p>admin</p>
+</li>
+<li><p>user</p>
+</li>
+<li><p>……</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Resource-Permission">Resource(Permission)<a class="post-anchor" href="#Resource-Permission"></a></h3><ul>
+<li><p>权限/资源</p>
+</li>
+<li><p>分类</p>
+<ul>
+<li><p>功能权限</p>
+<ul>
+<li>模块</li>
+</ul>
+</li>
+<li><p>菜单权限</p>
+<ul>
+<li>页内按钮操作</li>
+</ul>
+</li>
+<li><p>数据级</p>
+</li>
+<li><p>uri权限</p>
+<ul>
+<li><p>页面，代表前端路由地址</p>
+</li>
+<li><p>按钮，代表后端接口地址</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="扩展">扩展<a class="post-anchor" href="#扩展"></a></h2><h3 id="用户组">用户组<a class="post-anchor" href="#用户组"></a></h3><h3 id="菜单">菜单<a class="post-anchor" href="#菜单"></a></h3><h2 id="分类">分类<a class="post-anchor" href="#分类"></a></h2><h3 id="基本模型RBAC0">基本模型RBAC0<a class="post-anchor" href="#基本模型RBAC0"></a></h3><ul>
+<li><p>介绍</p>
+<ul>
+<li><p>RBAC0是基础，很多产品只需基于RBAC0就可以搭建权限模型了。<br>在这个模型中，我们把权限赋予角色，再把角色赋予用户。用户和角色，角色和权限都是多对多的关系。<br>用户拥有的权限等于他所有的角色持有权限之和。</p>
+</li>
+<li><p>举例</p>
+<ul>
+<li>譬如我们做一款企业管理产品，如果按传统权限模型，给每一个用户赋予权限则会非常麻烦，并且做不到批量修改用户权限。<br>这时候，可以抽象出几个角色，譬如销售经理、财务经理、市场经理等，然后把权限分配给这些角色，再把角色赋予用户。<br>这样无论是分配权限还是以后的修改权限，只需要修改用户和角色的关系，或角色和权限的关系即可，更加灵活方便。<br>此外，如果一个用户有多个角色，譬如王先生既负责销售部也负责市场部，那么可以给王先生赋予两个角色，即销售经理+市场经理，这样他就拥有这两个角色的所有权限。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>RBAC0模型图</p>
+<ul>
+<li>……</li>
+</ul>
+</li>
+<li><p>RBAC0适用场景</p>
+</li>
+<li><p>评价</p>
+</li>
+</ul>
+<h3 id="角色分层模型RBAC1">角色分层模型RBAC1<a class="post-anchor" href="#角色分层模型RBAC1"></a></h3><ul>
+<li><p>RBAC1建立在RBAC0基础之上，在角色中引入了继承的概念。<br>简单理解就是，给角色可以分成几个等级，每个等级权限不同，从而实现更细粒度的权限管理。</p>
+</li>
+<li><p>……</p>
+</li>
+<li><p>举例</p>
+<ul>
+<li>基于之前RBAC0的例子，我们又发现一个公司的销售经理可能是分几个等级的，譬如除了销售经理，还有销售副经理，而销售副经理只有销售经理的部分权限。<br>这时候，我们就可以采用RBAC1的分级模型，把销售经理这个角色分成多个等级，给销售副经理赋予较低的等级即可。</li>
+</ul>
+</li>
+</ul>
+<h3 id="角色限制模型RBAC2">角色限制模型RBAC2<a class="post-anchor" href="#角色限制模型RBAC2"></a></h3><ul>
+<li><p>RBAC2同样建立在RBAC0基础之上，仅是对用户、角色和权限三者之间增加了一些限制。<br>这些限制可以分成两类，即静态职责分离SSD(Static Separation of Duty)和动态职责分离DSD(Dynamic Separation of Duty)。</p>
+<ul>
+<li><p>静态职责分离SSD(Static Separation of Duty)</p>
+</li>
+<li><p>动态职责分离DSD(Dynamic Separation of Duty)。</p>
+</li>
+</ul>
+</li>
+<li><p>……</p>
+</li>
+<li><p>举例</p>
+<ul>
+<li>还是基于之前RBAC0的例子，我们又发现有些角色之间是需要互斥的，譬如给一个用户分配了销售经理的角色，就不能给他再赋予财务经理的角色了，否则他即可以录入合同又能自己审核合同；<br>再譬如，有些公司对角色的升级十分看重，一个销售员要想升级到销售经理，必须先升级到销售主管，这时候就要采用先决条件限制了。</li>
+</ul>
+</li>
+</ul>
+<h3 id="统一模型RBAC3">统一模型RBAC3<a class="post-anchor" href="#统一模型RBAC3"></a></h3><ul>
+<li><p>RBAC3是RBAC1和RBAC2的合集，所以RBAC3既有角色分层，也包括可以增加各种限制。</p>
+</li>
+<li><p>RBAC3= RBAC1 + RBAC2</p>
+</li>
+</ul>
+<h3 id="基于RBAC的延展——用户组">基于RBAC的延展——用户组<a class="post-anchor" href="#基于RBAC的延展——用户组"></a></h3><ul>
+<li><p>基于RBAC模型，还可以适当延展，使其更适合我们的产品。譬如增加用户组概念，直接给用户组分配角色，再把用户加入用户组。<br>这样用户除了拥有自身的权限外，还拥有了所属用户组的所有权限。</p>
+</li>
+<li><p>……</p>
+</li>
+<li><p>譬如，我们可以把一个部门看成一个用户组，如销售部，财务部，再给这个部门直接赋予角色，使部门拥有部门权限，这样这个部门的所有用户都有了部门权限。<br>用户组概念可以更方便的给群体用户授权，且不影响用户本来就拥有的角色权限。</p>
+</li>
+</ul>
+<h2 id="实例">实例<a class="post-anchor" href="#实例"></a></h2><h3 id="实体">实体<a class="post-anchor" href="#实体"></a></h3><ul>
+<li><p>用户表user</p>
+<ul>
+<li><p>id</p>
+</li>
+<li><p>……</p>
+<ul>
+<li>其他用户相关信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>角色表role</p>
+<ul>
+<li><p>id</p>
+</li>
+<li><p>pid</p>
+</li>
+<li><p>name</p>
+<ul>
+<li>角色名称</li>
+</ul>
+</li>
+<li><p>status</p>
+<ul>
+<li>是否禁用</li>
+</ul>
+</li>
+<li><p>updated_time</p>
+</li>
+<li><p>created_time</p>
+</li>
+</ul>
+</li>
+<li><p>权限表permission</p>
+<ul>
+<li><p>id</p>
+</li>
+<li><p>name</p>
+</li>
+<li><p>url</p>
+</li>
+<li><p>status</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="关系">关系<a class="post-anchor" href="#关系"></a></h3><ul>
+<li><p>用户角色表 UA</p>
+<ul>
+<li><p>id</p>
+</li>
+<li><p>uid</p>
+</li>
+<li><p>role_id</p>
+</li>
+<li><p>created_time</p>
+</li>
+</ul>
+</li>
+<li><p>权限角色表 PA</p>
+<ul>
+<li><p>id</p>
+</li>
+<li><p>role_id</p>
+</li>
+<li><p>per_id</p>
+</li>
+<li><p>created_time</p>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="其他">其他<a class="post-anchor" href="#其他"></a></h1><h2 id="ABAC">ABAC<a class="post-anchor" href="#ABAC"></a></h2><h3 id="基于属性的权限验证（ABAC-Attribute-Based-Access-Control）">基于属性的权限验证（ABAC: Attribute-Based Access Control）<a class="post-anchor" href="#基于属性的权限验证（ABAC-Attribute-Based-Access-Control）"></a></h3><h2 id="DAC">DAC<a class="post-anchor" href="#DAC"></a></h2><h3 id="案例">案例<a class="post-anchor" href="#案例"></a></h3><ul>
+<li>文件系统</li>
+</ul>
+<h3 id="自主访问控制（DAC-Discretionary-Access-Control）">自主访问控制（DAC: Discretionary Access Control）<a class="post-anchor" href="#自主访问控制（DAC-Discretionary-Access-Control）"></a></h3><h2 id="MAC">MAC<a class="post-anchor" href="#MAC"></a></h2><h3 id="强制访问控制（MAC-Mandatory-Access-Control）">强制访问控制（MAC: Mandatory Access Control）<a class="post-anchor" href="#强制访问控制（MAC-Mandatory-Access-Control）"></a></h3><h3 id="案例-1">案例<a class="post-anchor" href="#案例-1"></a></h3><ul>
+<li>政府机密文件</li>
+</ul>
+<h3 id="要素">要素<a class="post-anchor" href="#要素"></a></h3><ul>
+<li><p>控制体</p>
+</li>
+<li><p>权限标识</p>
+</li>
+<li><p>用户</p>
+<ul>
+<li>权限标识</li>
+</ul>
+</li>
+</ul>
+<h2 id="SAM">SAM<a class="post-anchor" href="#SAM"></a></h2><h3 id="SAM-Security-Access-Manager">SAM(Security Access Manager)<a class="post-anchor" href="#SAM-Security-Access-Manager"></a></h3><h3 id="有赞">有赞<a class="post-anchor" href="#有赞"></a></h3></body></html>
 
   
     <div class="post-reward">
@@ -297,13 +510,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   <div class="post-copyright">
     <div class="auth">
-      本文作者：<a href="https://takostar.net">Tako</a>
+      本文作者：<a href="http://takostar.net">Tako</a>
     </div>
     <div class="link">
-      永久链接：<a href="https://takostar.net/2022/02212221/">https://takostar.net/2022/02212221/</a>
+      永久链接：<a href="http://takostar.net/2022/02212221/">http://takostar.net/2022/02212221/</a>
     </div>
     <div class="declare">
-      版权声明：本文首发于<a href="https://takostar.net">Tako</a>的博客，转载请注明出处！
+      版权声明：本文首发于<a href="http://takostar.net">Tako</a>的博客，转载请注明出处！
     </div>
   </div>
 
@@ -315,7 +528,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <footer>
           <div class="copyright">
             ©2022
-            <a href="https://takostar.net">Tako</a> Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> |
+            <a href="http://takostar.net">Tako</a> Powered by <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> |
             <a href="https://github.com/shixiaohu2206/hexo-theme-huhu" target="_blank" rel="noopener">hexo-theme-huhu</a>
           </div>
           
