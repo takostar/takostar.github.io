@@ -1,6 +1,669 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>分布式场景下的CAP理论BASE理论和事务中的ACID特性</title>
+    <url>/2022/03192214/</url>
+    <content><![CDATA[<html><head></head><body><h2 id="以下为-mindmanager-的预览">以下为 mindmanager 的预览<a class="post-anchor" href="#以下为-mindmanager-的预览"></a></h2><!-- TODO:实现搜索框的按键展示(使用页面缩放?或者是弹性相应和直接style) -->
+
+<div class="post-mindmap">
+  <iframe class="mindmap" id="mindmap" src="CAP-BASE-ACID.html"></iframe>
+  <div class="r">
+  <span class="iconfont icon-close"></span>
+    <div class="tip"></div>
+    <a class="fullscreen-button">Full Screen</a>
+</div>
+</div>
+  <script type="text/javascript">
+    var sonWidth = document.getElementById("mindmap").offsetWidth;
+    document.getElementById("mindmap").style.height = sonWidth * 0.7 + "px";
+</script>
+
+
+<h1 id="CAP"><strong>CAP</strong><a class="post-anchor" href="#CAP"></a></h1><h2 id="历史">历史<a class="post-anchor" href="#历史"></a></h2><p>「CAP」理论由Eric Brewer在2000年PODC会议上提出</p>
+<p>是Eric Brewer在Inktomi期间研发搜索引擎、分布式web缓存时得出的一个猜想</p>
+<p>后来Seth Gilbert和Nancy Lynch对其进行了证明</p>
+<h2 id="概述">概述<a class="post-anchor" href="#概述"></a></h2><h3 id="版本">版本<a class="post-anchor" href="#版本"></a></h3><p><strong>第一版解释</strong></p>
+<ul>
+<li>对于一个分布式计算系统，不可能同时满足一致性、可用性、分区容错性三个设计约束</li>
+</ul>
+<p><strong>第二版解释</strong></p>
+<ul>
+<li>在一个分布式系统中，当涉及读写操作时，只能保证一致性、可用性、分区容错性三者中的二个，另一个必须被牺牲</li>
+</ul>
+<p><strong>二个版本差异点</strong></p>
+<ul>
+<li><p>分布式：连接并共享数据。分布式系统并不一定会互联和共享数据，比如：Memcache 不符合 CAP 理论，Mysql 符合</p>
+</li>
+<li><p>CAP 关注的是对数据的读写操作，而不是分布式系统的所有功能。<br>比如 ZK 的选举机制就不是 CAP 探讨的对象</p>
+</li>
+</ul>
+<p>三个要素只能实现两点，不能兼顾</p>
+<p>一个分布式系统不可能满足一致性，可用性和分区容错性这三个需求，最多只能同时满足两个。</p>
+<p>CAP理论断言任何基于网络的数据共享系统，<br>最多只能满足数据一致性、可用性、分区容忍性三要素中的两个要素。<br>但是通过显式处理分区情形，系统设计师可以做到优化数据一致性和可用性，进而取得三者之间的平衡。</p>
+<h3 id="分布式系统在设计时只能满足两种，无法兼顾三种。">分布式系统在设计时只能满足两种，无法兼顾三种。<a class="post-anchor" href="#分布式系统在设计时只能满足两种，无法兼顾三种。"></a></h3><p><strong>一个分布式系统里面，节点组成的网络本来应该是连通的。<br>然而可能因为一些故障，使得有些节点之间不连通了，整个网络就分成了几块区域。数据就散布在了这些不连通的区域中。这就叫分区。<br>当你一个数据项只在一个节点中保存，那么分区出现后，和这个节点不连通的部分就访问不到这个数据了。这时分区就是无法容忍的。<br>提高分区容忍性的办法就是一个数据项复制到多个节点上，那么出现分区之后，这一数据项就可能分布到各个区里。容忍性就提高了。<br>然而，要把数据复制到多个节点，就会带来一致性的问题，就是多个节点上面的数据可能是不一致的。<br>要保证一致，每次写操作就都要等待全部节点写成功，而这等待又会带来可用性的问题。<br>总的来说就是，数据存在的节点越多，分区容忍性越高，但要复制更新的数据就越多，一致性就越难保证。<br>为了保证一致性，更新所有节点数据所需要的时间就越长，可用性就会降低。</strong></p>
+<p>对大型网站，可用性与分区容忍性优先级要高于数据一致性，<br>一般会尽量朝着 A、P 的方向设计，然后通过其它手段保证对于一致性的商务需求。</p>
+<h3 id="CAP定理（布鲁尔定理）">CAP定理（布鲁尔定理）<a class="post-anchor" href="#CAP定理（布鲁尔定理）"></a></h3><p><strong>又被称作布鲁尔定理（Brewer’s theorem）</strong></p>
+<p>C、A、P三者最多只能满足其中两个，和FLP定理一样，CAP定理也指示了一个不可达的结果（impossibility result）</p>
+<h3 id="对于分布式系统工程实践，CAP理论更适合描述：在满足分区容错的前提下，没有算法能同时满足数据一致性和服务可用性。">对于分布式系统工程实践，CAP理论更适合描述：在满足分区容错的前提下，没有算法能同时满足数据一致性和服务可用性。<a class="post-anchor" href="#对于分布式系统工程实践，CAP理论更适合描述：在满足分区容错的前提下，没有算法能同时满足数据一致性和服务可用性。"></a></h3><p><strong>In a network subject to communication failures,<br>it is impossible for any web service to implement an atomic read/write shared memory that guarantees a response to every request.</strong></p>
+<h3 id="分布式系统无法同时确保一致性、可用性和分区容忍性，设计中往往需要弱化对某个特性的需求。分布式系统最多只能保证其中的两项特性。">分布式系统无法同时确保一致性、可用性和分区容忍性，设计中往往需要弱化对某个特性的需求。分布式系统最多只能保证其中的两项特性。<a class="post-anchor" href="#分布式系统无法同时确保一致性、可用性和分区容忍性，设计中往往需要弱化对某个特性的需求。分布式系统最多只能保证其中的两项特性。"></a></h3><p><strong>例如</strong></p>
+<ul>
+<li><p>网络出现分区时，系统无法同时保证一致性和可用性。</p>
+</li>
+<li><p>要么，节点因没有得到其他节点的确认而不应答（牺牲可用性）；</p>
+</li>
+<li><p>要么，节点只能应答非一致的结果（牺牲一致性）</p>
+</li>
+</ul>
+<h3 id="一个分布式系统只能满足-一致性-可用性-分区容错性中的两项">一个分布式系统只能满足 一致性 可用性 分区容错性中的两项<a class="post-anchor" href="#一个分布式系统只能满足-一致性-可用性-分区容错性中的两项"></a></h3><p><strong>分区容错性是分布式系统的基本要求，所有一般在C和A做权衡。</strong></p>
+<p><strong>因为如果放弃P只能采用单点部署的方式，这样就放弃了可扩展性，也就无所谓的分布式系统了。</strong></p>
+<p>一个分布式系统只能满足 一致性 可用性 分区容错性中的两项<br>分区容错性是分布式系统的基本要求，所有一般在C和A做权衡。<br>因为如果放弃P只能采用单点部署的方式，这样就放弃了可扩展性，也就无所谓的分布式系统了。<br>放弃A，如果发生网络故障或为了保证一致性，那么受到影响的服务需要等待一定时间，这段时间内系统无法对外提供正常的服务。<br>放弃C，实际上是放弃数据的强一致性，而保留数据的最终一致性。（强一致性，是指针对一个数据的更新操作成功后，所有用户都能读取到最新的数据）</p>
+<h2 id="关注点">关注点<a class="post-anchor" href="#关注点"></a></h2><p>互相连接</p>
+<p>数据而非系统</p>
+<p>涉及读写操作</p>
+<p>CAP 是忽略网络延迟的</p>
+<p>正常运行情况下，不存在 CP 和 AP 的选择，可以同时满足CA</p>
+<h2 id="设计约束">设计约束<a class="post-anchor" href="#设计约束"></a></h2><h3 id="一致性Consistency">一致性Consistency<a class="post-anchor" href="#一致性Consistency"></a></h3><p><strong>版本</strong></p>
+<ul>
+<li><p>版本一：所有节点同一时刻能看到相同数据</p>
+</li>
+<li><p>版本二：对某个制定的客户端，保证读操作能够返回最新的写操作结果</p>
+</li>
+</ul>
+<p><strong>这里的一致性指是「 线性一致性 」</strong></p>
+<p><strong>C: Consistency 一致性</strong></p>
+<ul>
+<li>Consistency（一致性）</li>
+</ul>
+<p><strong>数据是否在多个副本之间能否保持一致</strong></p>
+<p><strong>任何事物应该都是原子的，所有副本上的状态都是事物成功提交后的结果，并保持强一致</strong></p>
+<p><strong>一致性(Consistency) 客户端知道一系列的操作都会同时发生(生效)</strong></p>
+<p><strong>所有节点访问同一份最新的数据副本</strong></p>
+<ul>
+<li>设置定时器，放弃强一致性，达到最终一致性</li>
+</ul>
+<p><strong>任何时候所有的应用程序都能访问得到相同的数据</strong></p>
+<ul>
+<li>即所有的节点都能访问同一份最新的数据副本</li>
+</ul>
+<p><strong>Consistency 一致性</strong></p>
+<ul>
+<li>ACID理论</li>
+</ul>
+<p><strong>Consistency</strong></p>
+<ul>
+<li><p>因为在分布式的系统中P一定是要被考虑到的，所以就只剩下 AP和CP两个选项</p>
+<ul>
+<li>可用性</li>
+</ul>
+</li>
+</ul>
+<p><strong>Consistency(一致性)</strong></p>
+<ul>
+<li><p>如果系统一个操作返回成功，那么之后的读请求都必须读取到这个数据</p>
+</li>
+<li><p>如果系统一个操作返回失败，那么之后所有的读操作都不能读取这个数据</p>
+</li>
+<li><p>对调用者而言数据具有强一致性(strong consistency)。即原子性 atomic、线性一致性 linearizable consistency</p>
+</li>
+</ul>
+<h3 id="可用性Availability">可用性Availability<a class="post-anchor" href="#可用性Availability"></a></h3><p><strong>要素</strong></p>
+<ul>
+<li><p>（1）有限时间内</p>
+</li>
+<li><p>（2）返回正常结果</p>
+</li>
+</ul>
+<p><strong>版本</strong></p>
+<ul>
+<li><p>版本一：每个请求都能得到成功或失败的响应</p>
+</li>
+<li><p>版本二：非故障的节点在合理时间内返回合理的响应（不是错误或尝试的响应）</p>
+</li>
+</ul>
+<p><strong>A: Availability 可用性(指的是快速获取数据)</strong></p>
+<p><strong>可用性</strong></p>
+<ul>
+<li>系统服务一直处于可用状态.(总能在有限时间内返回结果)</li>
+</ul>
+<p><strong>保证每个请求不管成功或失败都有响应</strong></p>
+<p><strong>可用性(Availability)</strong></p>
+<ul>
+<li><p>每个操作都必须以可预期的响应结束</p>
+</li>
+<li><p>每次请求都能获取到非错的响应，所有的读和写都必须要能终止</p>
+</li>
+</ul>
+<p><strong>任何时候任何程序都可以读写数据</strong></p>
+<ul>
+<li><p>在集群中一部分节点故障后，集群整体是否还能响应客户的读写请求</p>
+</li>
+<li><p>即对数据更新具备高可用性</p>
+</li>
+</ul>
+<p><strong>Availability</strong></p>
+<ul>
+<li>因为在分布式的系统中P一定是要被考虑到的，所以就只剩下 AP和CP两个选项</li>
+</ul>
+<p><strong>可用性（Availability）</strong></p>
+<ul>
+<li><p>系统提供的服务必须一直处于可用状态，对于每一个操作请求总是能够在有限时间（区分场景）内返回结果</p>
+</li>
+<li><p>所有读写请求在一定时间内响应，可终止、不会一直等待</p>
+</li>
+<li><p>非故障的节点再合理的时间内返回合理的响应</p>
+</li>
+<li><p>系统能在有限时间内完成对操作请求的应答</p>
+</li>
+</ul>
+<h3 id="分区容错性Partition-tolerance">分区容错性Partition tolerance<a class="post-anchor" href="#分区容错性Partition-tolerance"></a></h3><p><strong>概述</strong></p>
+<ul>
+<li><p>分区容错性(Partition tolerance)</p>
+<ul>
+<li>P: Tolerance of network Partition 分区容忍性(分布式) </li>
+</ul>
+</li>
+<li><p>即使出现单个组件无法可用,操作依然可以完成</p>
+</li>
+<li><p>必须需要实现</p>
+<ul>
+<li><p>遇到某节点或网络分区故障的时候仍然可以提供一致性和可用性的服务</p>
+</li>
+<li><p>对于分布式系统来说，P是不能放弃的</p>
+</li>
+</ul>
+</li>
+<li><p>分布式系统在遇到任何网络分区故障的时候，<br>仍然需要能够保证对外提供满足一致性和可用性的服务，除非是整个网络环境都发生了故障。</p>
+</li>
+<li><p>要保证分区容错, 就只能在一致性和可用性之间 选择一个,如果选择可用性,则数据会不一致,如果保证数据一致,则不可用.</p>
+</li>
+<li><p>当你一个数据项只在一个节点中保存，那么分区出现后，和这个节点不连通的部分就访问不到这个数据了。<br>这时分区就是无法容忍的。</p>
+</li>
+<li><p>提高分区容忍性的办法就是一个数据项复制到多个节点上，那么出现分区之后，这一数据项就可能分布到各个区里。<br>容忍性就提高了。</p>
+</li>
+</ul>
+<p><strong>版本</strong></p>
+<ul>
+<li><p>版本一：出现消息丢失或分区错误时系统能够继续运行</p>
+</li>
+<li><p>版本二：当出现网络分区后，系统能后继续履行职责</p>
+</li>
+</ul>
+<p><strong>网络分区容错性</strong></p>
+<ul>
+<li><p>当系统出现分区,出现多个网络分区,分区间网络不可达, 要保证能访问数据,就一定需要保证数据冗余多副本保存.所以网络分区容错可以理解为数据副本冗余.<br>即使因为网络或者其他原因,某些节点退出,分布式系统也能恢复(要求数据冗余). 即使分布式系统内部不需要互相访问,也要考虑节点挂掉的影响.</p>
+</li>
+<li><p>分区容错性是一个最基本的要求。因为既然是一个分布式系统，<br>那么分布式系统中的组件必然需要被部署到不同的节点，否则也就无所谓分布式系统了，因此必然出现子网络。<br>而对于分布式系统而言，网络问题又是一个必定会出现的异常情况，因此分区容错性也就成为了一个分布式系统必然需要面对和解决的问题。<br>因此系统架构师往往需要把精力花在如何根据业务特点在C（一致性）和A（可用性）之间寻求平衡</p>
+</li>
+</ul>
+<p><strong>系统可以跨网络分区线性的伸缩和扩展</strong></p>
+<ul>
+<li>分区相当于对通信的实现要求，系统如果不能在时限内达成数据的一致性，就意味着发生了分区的情况</li>
+</ul>
+<p><strong>Partition Tolerance 分隔容忍</strong></p>
+<p><strong>Partition-tolerance</strong></p>
+<ul>
+<li>大部分的分布式系统都分布在不同子网络之间，每个子网络就属于一个分区，分区容错指的就是区间的通信有可能失败，那么如果通信失败则就会出现多个分区，所以在分布式的系统中P一定是满足的，除非你的服务只部署在一台机器上面</li>
+</ul>
+<p><strong>系统在遇到任何网络分区故障时，仍然能够保证对外提供满足一致性和可用性的服务，除非整个网络环境都发生了故障</strong></p>
+<p><strong>在网络分区的情况下，被分隔的节点仍能正常对外服务</strong></p>
+<ul>
+<li>当出现网络分区后，系统能够继续”履行职责”</li>
+</ul>
+<p><strong>系统中的网络可能发生分区故障，即节点之间的通信无法保障。<br>而网络故障不应该影响到系统正常服务</strong></p>
+<p><strong>限制条件</strong></p>
+<ul>
+<li>网络本身无法做到100%可靠，所以必须保证分区容忍性</li>
+</ul>
+<h2 id="组合-应用">组合(应用)<a class="post-anchor" href="#组合-应用"></a></h2><h3 id="CA">CA<a class="post-anchor" href="#CA"></a></h3><p><strong>放弃分区容错性，加强一致性和可用性，<br>其实就是传统的单机数据库的选择</strong></p>
+<p><strong>弱化分区容忍性</strong></p>
+<ul>
+<li>现实中，网络分区出现概率较小，但很难完全避免。<br>两阶段的提交算法，某些关系型数据库以及 ZooKeeper 主要考虑了这种设计。<br>实践中，网络可以通过双通道等机制增强可靠性，实现高稳定的网络通信。</li>
+</ul>
+<p><strong>不能容忍网络错误或节点错误，一旦出现，整个系统拒绝写请求</strong></p>
+<ul>
+<li><p>网络本身无法做到100%可靠，有可能出故障，所以分区时一个必然的现象。</p>
+</li>
+<li><p>因为系统不知道对面节点是否挂掉还是只是网络问题，唯一安全做法是把自己变成只读</p>
+</li>
+<li><p>单节点挂了 ,就完蛋了</p>
+</li>
+</ul>
+<p><strong>关注一致性和可用性</strong></p>
+<ul>
+<li><p>需要非常严格的全体一致性协议</p>
+<ul>
+<li><p>2PC(两阶段提交)</p>
+</li>
+<li><p>3PC(三阶段提交)</p>
+</li>
+</ul>
+</li>
+<li><p>此时的可用性的不是指多节点高可用的可用性</p>
+</li>
+</ul>
+<h3 id="CP">CP<a class="post-anchor" href="#CP"></a></h3><p><strong>关注一致性和分区容忍性</strong></p>
+<ul>
+<li><p>大多数一致性协议</p>
+<ul>
+<li><p>Paxos算法</p>
+</li>
+<li><p>Quorum类的算法</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>保证大多数节点数据一致，<br>少数节点会在数据未同步到最新版本之前处于不可用状态</strong></p>
+<p><strong>放弃可用性，追求一致性和分区容错性，<br>基本不会选择，网络问题会直接让整个系统不可用</strong></p>
+<p><strong>zk是放弃可用性</strong></p>
+<p><strong>放弃A，如果发生网络故障或为了保证一致性</strong></p>
+<ul>
+<li>那么受到影响的服务需要等待一定时间，<br>这段时间内系统无法对外提供正常的服务。</li>
+</ul>
+<p><strong>既保证最新数据返回</strong></p>
+<p><strong>取到非最新数据时返回错误</strong></p>
+<p><strong>CP 架构</strong></p>
+<ul>
+<li>二个节点N1、N2，复制通道中断，数据无法同步到 N2，<br>客户端访问 N2，返回 error，违背了可用性，因此只能选择 CP</li>
+</ul>
+<p><strong>弱化可用性</strong></p>
+<ul>
+<li><p>对结果一致性很敏感的应用，例如银行取款机，当系统故障时候会拒绝服务。MongoDB、Redis、MapReduce 等为此设计。</p>
+</li>
+<li><p>Paxos、Raft 等共识算法，主要处理这种情况。<br>在 Paxos 类算法中，可能存在着无法提供可用结果的情形，同时允许少数节点离线。</p>
+</li>
+</ul>
+<h3 id="AP">AP<a class="post-anchor" href="#AP"></a></h3><p><strong>关注可用性和分区容忍性</strong></p>
+<ul>
+<li><p>不能达成一致性要求，需要给出数据冲突，给出数据冲突就需要维护数据版本</p>
+</li>
+<li><p>保证都能返回数据，可以多版本</p>
+<ul>
+<li>二个节点N1、N2，复制通道中断，数据无法同步到 N2，<br>客户端访问 N2，返回 旧的值，不能满足一致性，因此只能选择AP</li>
+</ul>
+</li>
+</ul>
+<p><strong>Dynamo</strong></p>
+<p><strong>AP</strong></p>
+<ul>
+<li><p>例如很多NoSQL系统就是如此，异步复制，一致性很弱</p>
+</li>
+<li><p>放弃一致性（这里说的一致性是强一致性），追求分区容错性和可用性，<br>这是很多分布式系统设计时的选择，</p>
+</li>
+</ul>
+<p><strong>放弃C，实际上是放弃数据的强一致性，而保留数据的最终一致性。</strong></p>
+<ul>
+<li>强一致性，是指针对一个数据的更新操作成功后，所有用户都能读取到最新的数据</li>
+</ul>
+<p><strong>总结：基于 Paxos 算法构建的分布式系统，属于 CAP 架构哪一种？</strong></p>
+<ul>
+<li><p>Paxos 算法提供最终一致性保证</p>
+<ul>
+<li>符合 CP 方案</li>
+</ul>
+</li>
+<li><p>大部分集群方案都是 AP 方案</p>
+</li>
+</ul>
+<p><strong>弱化一致性。</strong></p>
+<ul>
+<li>对结果一致性不敏感的应用，<br>如：静态页面内容、实时性较弱的查询类数据库等。允许一段时间才最终更新成功，期间不保证一致性</li>
+</ul>
+<h2 id="实例">实例<a class="post-anchor" href="#实例"></a></h2><p>1.关系型数据库一般选择C（一致性）与A（可用性）。</p>
+<p>2.HBase选择了C（一致性）与P（分区可容忍性）</p>
+<p>3.Cassandra选择了A（可用性）与P（分区可容忍性）</p>
+<h2 id="CAP关键细节点">CAP关键细节点<a class="post-anchor" href="#CAP关键细节点"></a></h2><p>关注粒度是数据，而不是整个系统</p>
+<p>忽略网络延迟的</p>
+<h3 id="正常运行情况下，不存在-CP、AP-的选择，可以同时满足-CA">正常运行情况下，不存在 CP、AP 的选择，可以同时满足 CA<a class="post-anchor" href="#正常运行情况下，不存在-CP、AP-的选择，可以同时满足-CA"></a></h3><p><strong>分区发生时选择 CP 或 AP</strong></p>
+<p><strong>没有分区时，也要考虑如何保证 CA</strong></p>
+<p>放弃并不等于什么都不做，需要为分区恢复后做准备</p>
+<h2 id="误区">误区<a class="post-anchor" href="#误区"></a></h2><h3 id="关于P的理解">关于P的理解<a class="post-anchor" href="#关于P的理解"></a></h3><p><strong>Partition：网络分区，即因网络因素将系统分隔为多个单独的部分</strong></p>
+<p><strong>有人说，网络分区的情况发生的概率非常小，是不是不用考虑P，保证CA就好</strong></p>
+<ul>
+<li>现实情况是我们面对的是一个不可靠的网络、有一定的概率宕机的设备，<br>这两个因素都会导致Partition，因此分布式系统实现中P是一个必须项，而不是一个可选项。</li>
+</ul>
+<p><strong>CAP中P的定义</strong></p>
+<ul>
+<li><p>In order to model partition tolerance, the network will be allowed lose arbitrarily many messages sent from one node to another.</p>
+</li>
+<li><p>网络允许从一个节点到另一个的任意的多个消息的丢失</p>
+</li>
+<li><p>分区容忍性意味着通过降低系统的其他属性来开发一个复制策略。</p>
+</li>
+</ul>
+<p><strong>网络分区、网络丢包、节点宕机都符合CAP中P的定义</strong></p>
+<h3 id="CA非0-1的选择">CA非0/1的选择<a class="post-anchor" href="#CA非0-1的选择"></a></h3><p><strong>工程实践中一致性有不同程度，可用性也有不同等级，<br>在保证分区容错性的前提下，放宽约束后可以兼容一致性和可用性，两者不是非此即彼</strong></p>
+<p><strong>CAP定理中的一致性指强一致性</strong></p>
+<ul>
+<li><p>强一致性要求多个节点组成的被调用能像单个节点一样允许、操作具备原子性，在数据和时序上都有要求</p>
+</li>
+<li><p>放宽时间、时序要求</p>
+<ul>
+<li><p>sequential consistency（序列一致性）</p>
+<ul>
+<li>不要去时序一致</li>
+</ul>
+</li>
+<li><p>enventual consistency（最终一致性）</p>
+<ul>
+<li>放宽对时间的要求</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>可用性在CAP定理中指所有读写操作必须要能终止</strong></p>
+<ul>
+<li><p>实际应用中从主调、被调视觉来看，可用性具有不同的含义</p>
+<ul>
+<li>当P(网络分区)出现时，主调可以只支持读操作，通过牺牲部分可用性达成数据一致</li>
+</ul>
+</li>
+<li><p>工程实践中，较常见的做法是通过异步拷贝副本(asynchronous replication)、quorum/NRW，<br>实现在调用端看来数据强一致、被调端最终一致，在调用端看来服务可用、被调端允许部分节点不可用(或被网络分隔)的效果</p>
+</li>
+</ul>
+<h3 id="跳出CAP">跳出CAP<a class="post-anchor" href="#跳出CAP"></a></h3><p><strong>CAP理论对实现分布式系统具有指导意义，<br>但CAP理论并没有涵盖分布式工程实践中的所有重要因素</strong></p>
+<p><strong>延时（latency）</strong></p>
+<ul>
+<li><p>衡量系统可用性、与用户体验直接相关的一项重要指标</p>
+</li>
+<li><p>加上延时考虑</p>
+<ul>
+<li><p>CAP理论修改版：PACELC</p>
+<ul>
+<li>如果出现P(网络分区)，如何在A(服务可用性)、C(数据一致性)之间选择；<br>否则，如何在L(延时)、C(数据一致性)之间选择。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>如果要达到强一致性、多个副本数据一致，必然增加延时</p>
+</li>
+</ul>
+<p><strong>CAP理论中的可用性要求操作能终止、不无休止地进行</strong></p>
+<h2 id="其他">其他<a class="post-anchor" href="#其他"></a></h2><p>为什么不能都保证</p>
+<h2 id="分布式领域CAP理论，">分布式领域CAP理论，<a class="post-anchor" href="#分布式领域CAP理论，"></a></h2><p>Consistency(一致性), 数据一致更新，所有数据变动都是同步的</p>
+<p>Availability(可用性), 好的响应性能</p>
+<p>Partition tolerance(分区容忍性) 可靠性</p>
+<p>定理：任何分布式系统只可同时满足二点，没法三者兼顾。</p>
+<p>忠告：架构师不要将精力浪费在如何设计能满足三者的完美分布式系统，而是应该进行取舍。</p>
+<h1 id="BASE"><strong>BASE</strong><a class="post-anchor" href="#BASE"></a></h1><h2 id="概述-1">概述<a class="post-anchor" href="#概述-1"></a></h2><p>BASE 理论是 Basically Available(基本可用)，Soft State（软状态）和Eventually Consistent（最终一致性）三个短语的缩写。</p>
+<p>完全不同于ACID的强一致性模型，而是通过牺牲强一致性来获得可用性，<br>并允许数据在一段时间内是不一致的，但最终达到一致状态</p>
+<p>指基本可以、软状态、最终一致性，核心思想是即使无法做到强一致性，但可以采用适合的方式达到最终一致性</p>
+<p>BASE 理论是对 CAP 中一致性和可用性权衡的结果，其来源于对大型互联网分布式实践的总结，是基于 CAP 定理逐步演化而来的</p>
+<p>BASE模型反ACID模型，完全不同ACID模型，牺牲高一致性，获得可用性或可靠性：</p>
+<h2 id="约束">约束<a class="post-anchor" href="#约束"></a></h2><h3 id="基本可用（Basically-Available）">基本可用（Basically Available）<a class="post-anchor" href="#基本可用（Basically-Available）"></a></h3><p><strong>概述</strong></p>
+<ul>
+<li><p>指分布式系统在出现不可预知故障的时候，允许损失部分可用性。</p>
+</li>
+<li><p>基本可用是指分布式系统在出现不可预知故障的时候，允许损失部分可用性——但请注意，<br>这绝不等价于系统不可用，以下两个就是“基本可用”的典型例子。</p>
+</li>
+<li><p>支持分区失败(e.g. sharding碎片划分数据库)</p>
+</li>
+<li><p>分布式系统再出现故障时，允许损失部分可用性，即保证核心可用</p>
+</li>
+<li><p>关键字：部分、核心，根据业务选择</p>
+</li>
+<li><p>在分布式系统出现不可预知的故障时, 允许损失部分可用性</p>
+</li>
+</ul>
+<p><strong>损失</strong></p>
+<ul>
+<li><p>响应时间上的损失</p>
+<ul>
+<li><p>响应时间增长.但不会失败</p>
+</li>
+<li><p>响应时间上的损失</p>
+<ul>
+<li>正常情况下，一个在线搜索引擎需要0.5秒内返回给用户相应的查询结果，<br>但由于出现异常（比如系统部分机房发生断电或断网故障），查询结果的响应时间增加到了1~2秒。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>功能上的损失</p>
+<ul>
+<li><p>部分功能不可用</p>
+</li>
+<li><p>系统功能上的损失，网页降级</p>
+</li>
+<li><p>当流量高峰期时，<br>屏蔽一些功能的使用以保证系统稳定性（服务降级）</p>
+<ul>
+<li>正常情况下，在一个电子商务网站上进行购物，消费者几乎能够顺利地完成每一笔订单，<br>但是在一些节日大促购物高峰的时候，由于消费者的购物行为激增，为了保护购物系统的稳定性，部分消费者可能会被引导到一个降级页面。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="软状态（-Soft-State）">软状态（ Soft State）<a class="post-anchor" href="#软状态（-Soft-State）"></a></h3><p><strong>指允许系统中的数据存在中间状态，并认为该中间状态的存在不会影响系统的整体可用性，<br>即允许系统在不同节点的数据副本之间进行数据同步的过程存在延时。</strong></p>
+<p><strong>允许系统存在中间状态，而该中间状态不会影响系统整体可用性</strong></p>
+<ul>
+<li><p>不同节点的数据副本之间进行数据同步的过程存在延时</p>
+</li>
+<li><p>状态可以有一段时间不同步，异步。</p>
+</li>
+</ul>
+<p><strong>Soft-state –软状态/柔性事务</strong></p>
+<ul>
+<li><p>“Soft state” 可以理解为”无连接”的, 而 “Hard state” 是”面向连接”的</p>
+</li>
+<li><p>和硬状态相对，是指允许系统中的数据存在中间状态，并认为该中间状态的存在不会影响系统的整体可用性，<br>即允许系统在不同节点的数据副本之间进行数据同步的过程存在延时。比如支付过程</p>
+</li>
+</ul>
+<h3 id="最终一致性（-Eventual-Consistency）">最终一致性（ Eventual Consistency）<a class="post-anchor" href="#最终一致性（-Eventual-Consistency）"></a></h3><p><strong>概述</strong></p>
+<ul>
+<li><p>强调的是所有的数据更新操作，在经过一段时间的同步之后，最终都能够达到一个一致的状态。<br>因此，最终一致性的本质是需要系统保证最终数据能够达到一致，而不需要实时保证系统数据的强一致性</p>
+</li>
+<li><p>所有的数据副本，在经过一段时间的同步之后，最终都能够达到一个一致的状态</p>
+</li>
+<li><p>允许数据在一段时间内是不一致的，但系统中的所有数据副本在经过一段时间的同步之后，最终能够达到一致的状态</p>
+<ul>
+<li>需要系统保证最终数据能够达到一致，而不需要实时保证系统数据的强一致性</li>
+</ul>
+</li>
+<li><p>关键字</p>
+<ul>
+<li>一定时间、最终。不同的数据能够容忍的不一致时间是不同的</li>
+</ul>
+</li>
+</ul>
+<p><strong>分类</strong></p>
+<ul>
+<li><p>（1）因果一致性（Causal consistency）</p>
+<ul>
+<li>即进程A在更新完数据后通知进程B，那么之后进程B对该项数据的范围都是进程A更新后的最新值。</li>
+</ul>
+</li>
+<li><p>（2）读己之所写（Read your writes）</p>
+<ul>
+<li>进程A更新一项数据后，它自己总是能访问到自己更新过的最新值。</li>
+</ul>
+</li>
+<li><p>（3）会话一致性（Session consistency）</p>
+<ul>
+<li>将数据一致性框定在会话当中，在一个会话当中实现读己之所写的一致性。<br>即执行更新后，客户端在同一个会话中始终能读到该项数据的最新值</li>
+</ul>
+</li>
+<li><p>（4）单调读一致性（Monotonic read consistency）</p>
+<ul>
+<li>如果一个进程从系统中读取出一个数据项的某个值后，<br>那么系统对于该进程后续的任何数据访问都不应该返回更旧的值。</li>
+</ul>
+</li>
+<li><p>（5）单调写一致性（Monotoic write consistency）</p>
+<ul>
+<li>一个系统需要保证来自同一个进程的写操作被顺序执行。</li>
+</ul>
+</li>
+</ul>
+<h2 id="核心思想">核心思想<a class="post-anchor" href="#核心思想"></a></h2><p>即使无法做到强一致性（Strong consistency），但每个应用都可以根据自身的业务特点，<br>采用适当的方式来使系统达到最终一致性（Eventual consistency）</p>
+<h3 id="BASE理论是对CAP中的一致性和可用性进行一个权衡的结果，理论的核心思想就是">BASE理论是对CAP中的一致性和可用性进行一个权衡的结果，理论的核心思想就是<a class="post-anchor" href="#BASE理论是对CAP中的一致性和可用性进行一个权衡的结果，理论的核心思想就是"></a></h3><p><strong>无法做到强一致，但每个应用都可以根据自身的业务特点，采用适当的方式来使系统达到最终一致性（Eventual consistency）。</strong></p>
+<p>既是无法做到强一致性（Strong consistency），但每个应用都可以根据自身的业务特点，<br>采用适当的方式来使系统达到最终一致性（Eventual consistency）。</p>
+<h2 id="其他-1">其他<a class="post-anchor" href="#其他-1"></a></h2><h3 id="BASE（FROM-EBay）">BASE（FROM EBay）<a class="post-anchor" href="#BASE（FROM-EBay）"></a></h3><hr>
+<p><strong>过程</strong></p>
+<ul>
+<li><p>分布式事务转化成多个本地事务</p>
+</li>
+<li><p>在第一阶段，通过本地的数据库的事务保障，增加了 transaction 表及消息队列 。</p>
+</li>
+<li><p>在第二阶段，分别读出消息队列（但不删除），<br>通过判断更新记录表 updates_applied 来检测相关记录是否被执行，<br>未被执行的记录会修改 user 表，<br>然后增加一条操作记录到 updates_applied，<br>事务执行成功之后再删除队列。</p>
+</li>
+</ul>
+<h3 id="跨数据库两段提交事务">跨数据库两段提交事务<a class="post-anchor" href="#跨数据库两段提交事务"></a></h3><p><strong>2PC (two-phase commit)， 2PC is the anti-scalability pattern (Pat Helland) 是反可伸缩模式的，<br>JavaEE中的JTA事务可以支持2PC。<br>因为2PC是反模式，尽量不要使用2PC，使用BASE来回避。</strong></p>
+<h3 id="BASE模型反ACID模型，完全不同ACID模型，牺牲高一致性，获得可用性或可靠性：">BASE模型反ACID模型，完全不同ACID模型，牺牲高一致性，获得可用性或可靠性：<a class="post-anchor" href="#BASE模型反ACID模型，完全不同ACID模型，牺牲高一致性，获得可用性或可靠性："></a></h3><p><strong>Basically Available基本可用。支持分区失败(e.g. sharding碎片划分数据库)</strong></p>
+<p><strong>Soft state软状态 状态可以有一段时间不同步，异步。</strong></p>
+<p><strong>Eventually consistent最终一致，最终数据是一致的就可以了，而不是时时高一致。</strong></p>
+<h2 id="实现">实现<a class="post-anchor" href="#实现"></a></h2><h3 id="BASE思想的主要实现有">BASE思想的主要实现有<a class="post-anchor" href="#BASE思想的主要实现有"></a></h3><p><strong>1.按功能划分数据库</strong></p>
+<p><strong>2.sharding碎片</strong></p>
+<p>BASE思想主要强调基本的可用性，如果你需要高可用性，也就是纯粹的高性能，<br>那么就要以一致性或容忍性为牺牲，BASE思想的方案在性能上还是有潜力可挖的。</p>
+<h3 id="现在NOSQL运动丰富了拓展了BASE思想，可按照具体情况定制特别方案，比如忽视一致性，获得高可用性等等，NOSQL应该有下面两个流派：">现在NOSQL运动丰富了拓展了BASE思想，可按照具体情况定制特别方案，比如忽视一致性，获得高可用性等等，NOSQL应该有下面两个流派：<a class="post-anchor" href="#现在NOSQL运动丰富了拓展了BASE思想，可按照具体情况定制特别方案，比如忽视一致性，获得高可用性等等，NOSQL应该有下面两个流派："></a></h3><p><strong>流派</strong></p>
+<ul>
+<li><ol>
+<li>Key-Value存储，如Amaze Dynamo等，可根据CAP三原则灵活选择不同倾向的数据库产品。</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>领域模型 + 分布式缓存 + 存储 （Qi4j和NoSql运动），<br>可根据CAP三原则结合自己项目定制灵活的分布式方案，难度高。</li>
+</ol>
+</li>
+</ul>
+<p><strong>共同点</strong></p>
+<ul>
+<li>都是关系数据库SQL以外的可选方案，逻辑随着数据分布，任何模型都可以自己持久化，<br>将数据处理和数据存储分离，将读和写分离，存储可以是异步或同步，取决于对一致性的要求程度。</li>
+</ul>
+<p><strong>不同点</strong></p>
+<ul>
+<li>NOSQL之类的Key-Value存储产品是和关系数据库头碰头的产品BOX，可以适合非Java如PHP RUBY等领域，是一种可以拿来就用的产品，<br>而领域模型 + 分布式缓存 + 存储是一种复杂的架构解决方案，不是产品，但这种方式更灵活，更应该是架构师必须掌握的。</li>
+</ul>
+<h1 id="色彩"><strong>色彩</strong><a class="post-anchor" href="#色彩"></a></h1><p>红色</p>
+<p>蓝色</p>
+<p>绿色</p>
+<h1 id="CAP和BASE相关点"><strong>CAP和BASE相关点</strong><a class="post-anchor" href="#CAP和BASE相关点"></a></h1><h2 id="CAP-理论时忽略延时的，而实际应用中延时是无法避免的">CAP 理论时忽略延时的，而实际应用中延时是无法避免的<a class="post-anchor" href="#CAP-理论时忽略延时的，而实际应用中延时是无法避免的"></a></h2><p>CP 实际上也是最终一致性，一定时间是几毫米而已</p>
+<h2 id="AP-方案中牺牲一致性只是指分区期间，而不是永远放弃一致性">AP 方案中牺牲一致性只是指分区期间，而不是永远放弃一致性<a class="post-anchor" href="#AP-方案中牺牲一致性只是指分区期间，而不是永远放弃一致性"></a></h2><p>分区故障恢复后，系统应达到最终一致性</p>
+<p> CAP 是分布式系统设计理论，BASE 是 CAP 理论中 AP 方案的延伸</p>
+<h1 id="ACID"><strong>ACID</strong><a class="post-anchor" href="#ACID"></a></h1><h2 id="事务">事务<a class="post-anchor" href="#事务"></a></h2><p>程序执行单元，里面的操作要么全部执行成功，要么全部执行失败</p>
+<h2 id="定义">定义<a class="post-anchor" href="#定义"></a></h2><p>事务的ACID特性</p>
+<h3 id="ACID-也是一种比较出名的描述一致性的原则，-通常出现在分布式数据库等基于事务过程的系统中。-以牺牲可用性为代价">ACID 也是一种比较出名的描述一致性的原则， 通常出现在分布式数据库等基于事务过程的系统中。 以牺牲可用性为代价<a class="post-anchor" href="#ACID-也是一种比较出名的描述一致性的原则，-通常出现在分布式数据库等基于事务过程的系统中。-以牺牲可用性为代价"></a></h3><p><strong>A即 Atomicity（原子性）。每次事务是原子的，事务包含的所有操作要么全部成功，要么全部不执行。 一旦有操作失败，则需要回退状态到执行事务之前</strong></p>
+<p><strong>C即 Consistency（一致性）。<br>数据库的状态在事务执行前后的状态是一致的和完整的，无中间状态。<br> 即只能处于成功事务提交后的状态</strong></p>
+<p><strong>I 即  Isolation（隔离性）。各种事务可以并发执行，但彼此之间互相不影响。<br>按照标准 SQL 规范，从弱到强可以分为未授权读取、授权读取、可重复读取和串行化四种隔离等级</strong></p>
+<p><strong>D即 Durability（持久性）。 状态的改变是持久的，不会失效。<br>一旦某个事务提交，则它造成的状态变更就是永久性的</strong></p>
+<h3 id="关系数据库的ACID模型拥有-高一致性-可用性-很难进行分区">关系数据库的ACID模型拥有 高一致性 + 可用性 很难进行分区<a class="post-anchor" href="#关系数据库的ACID模型拥有-高一致性-可用性-很难进行分区"></a></h3><p><strong>与之相对应的是BASE（Basic Availability，Soft-state，Eventual Consistency）原则。<br>BASE 原则面向大型高可用分布式系统，主张牺牲掉对强一致性的追求，而实现最终一致性，来换取一定的可用性。</strong></p>
+<p>数据库管理系统为了保证事务的正确性而提出来的一个理论</p>
+<p>ACID 是数据库事务完整性理论</p>
+<h2 id="约束-1">约束<a class="post-anchor" href="#约束-1"></a></h2><h3 id="原子性（Atomicity）">原子性（Atomicity）<a class="post-anchor" href="#原子性（Atomicity）"></a></h3><p><strong>Atomicity(目标)</strong></p>
+<p><strong>事务是最小的执行单位</strong></p>
+<p><strong>一个事务（transaction）中的所有操作，要么全部完成，要么全部不完成，不会结束在中间某个环节。<br>事务在执行过程中发生错误，会被回滚（Rollback）到事务开始前的状态，就像这个事务从来没有执行过一样。</strong></p>
+<p><strong>即不可分割，事务要么全部被执行，要么全部不执行。<br>如果事务的所有子事务全部提交成功，则所有的数据库操作被提交，数据库状态发生变化；<br>如果有子事务失败，则其他子事务的数据库操作被回滚，即数据库回到事务执行前的状态，不会发生状态转换。</strong></p>
+<p><strong>对一个事务内的操作来说，整个事务是原子的，要么内部的执行（插入或更新）全部成功，<br>要么事务失败，所有操作回滚</strong></p>
+<p><strong>事务是一个不可分割的整体，所有操作要么全做，要么全不做；只要事务中有一个操作出错，<br>回滚到事务开始前的状态的话，那么之前已经执行的所有操作都是无效的，都应该回滚到开始前的状态</strong></p>
+<p><strong>事务中的操作是原子的，一个事务中的所有操作，要么全部完成，要么全部不完成，不会再中间某个环节结束</strong></p>
+<p><strong>事务中各项操作，要么全做要么不做，任何一项操作的失败都会导致整个事务的失败</strong></p>
+<p><strong>一个事务必须是一个不可分割的最小工作单元，整个事务的全部操作，要么全部提交成功，要么全部失败回滚，不可能执行其中一部分。</strong></p>
+<h3 id="一致性（Consistency）">一致性（Consistency）<a class="post-anchor" href="#一致性（Consistency）"></a></h3><p><strong>Consistency(约束)</strong></p>
+<p><strong>在事务开始之前和事务结束以后，数据库的完整性没有被破坏。<br>这表示写入的资料必须完全符合所有的预设规则，这包含资料的精确度、串联性以及后续数据库可以自发性地完成预定的工作。</strong></p>
+<p><strong>事务的执行使得数据库从一种正确状态转换成另外一种正确状态。</strong></p>
+<p><strong>不受并发等影响，事务执行成功，则数据是确定的</strong></p>
+<p><strong>事务执行前后，数据从一个状态到另一个状态必须是一致的，<br>比如A向B转账（A、B的总金额就是一个一致性状态），不可能出现A扣了钱，B却没收到的情况发生。</strong></p>
+<p><strong>再事务开始之前和事务结束以后，数据库的完整性没有被破坏</strong></p>
+<p><strong>在事务开始或结束时，数据库应该在一致状态。</strong></p>
+<ul>
+<li>数据库事务执行的结果总是从一个一致性的状态转换到另外一个一致性状态。没有中间状态</li>
+</ul>
+<p><strong>执行完后，数据保证一致</strong></p>
+<ul>
+<li><p>事务结束后系统状态是一样的</p>
+</li>
+<li><p>一旦事务完成,系统必须确保所建模业务一致状态</p>
+</li>
+</ul>
+<p><strong>规则一致性</strong></p>
+<ul>
+<li><p>主键约束</p>
+</li>
+<li><p>唯一键约束</p>
+</li>
+<li><p>外键约束</p>
+</li>
+</ul>
+<p><strong>逻辑一致性</strong></p>
+<ul>
+<li><p>悲观锁</p>
+</li>
+<li><p>乐观锁</p>
+</li>
+<li><p>双重锁检查</p>
+</li>
+<li><p>balking模式</p>
+</li>
+</ul>
+<h3 id="隔离性（Isolation）">隔离性（Isolation）<a class="post-anchor" href="#隔离性（Isolation）"></a></h3><p><strong>概述</strong></p>
+<ul>
+<li><p>数据库允许多个并发事务同时对其数据进行读写和修改的能力，隔离性可以防止多个事务并发执行时由于交叉执行而导致数据的不一致。<br>事务隔离分为不同级别</p>
+</li>
+<li><p>事务与事务之间不受影响，中间状态不可见</p>
+<ul>
+<li><p>并发执行的事务彼此无法看到对方的中间状态</p>
+</li>
+<li><p>防止多个事务并发执行时由于交叉执行而导致数据的不一致</p>
+</li>
+<li><p>一个事务的执行不能被其它事务干扰</p>
+<ul>
+<li>并发执行时，事务不被其他事务所干扰</li>
+</ul>
+</li>
+<li><p>事务将假定只有它自己在操作数据库，彼此不知晓。</p>
+</li>
+<li><p>事务之间的隔离级别，对其他事务的可见性。<br>通常一个事务所做的修改在最终提交之前 对其他事务是不可见的。</p>
+</li>
+<li><p>在事务正确提交之前，不允许把事务对该数据的改变提供给任何其他事务，<br>即在事务正确提交之前，它可能的结果不应该显示给其他事务。</p>
+</li>
+</ul>
+</li>
+<li><p>事务之间彼此隔离,往往涉及到锁定数据库中行或表</p>
+</li>
+<li><p>多个并发事务之间相互隔离，不能互相干扰。</p>
+</li>
+<li><p>关于事务的隔离性，可能不是特别好理解，这里的并发事务是指两个事务操作了同一份数据的情况；<br>而对于并发事务操作同一份数据的隔离性问题，则是要求不能出现脏读、幻读的情况，<br>即事务A不能读取事务B还没有提交的数据，或者在事务A读取数据进行更新操作时，不允许事务B率先更新掉这条数据。<br>而为了解决这个问题，常用的手段就是加锁了，对于数据库来说就是通过数据库的相关锁机制来保证。</p>
+</li>
+</ul>
+<p><strong>事务隔离级别</strong></p>
+<ul>
+<li><p>读未提交（Read uncommitted）</p>
+<ul>
+<li>Read Uncommitted（读取未提交内容）</li>
+</ul>
+</li>
+<li><p>读提交（read committed）</p>
+<ul>
+<li>Read Committed（读取提交内容）</li>
+</ul>
+</li>
+<li><p>可重复读（repeatable read）</p>
+<ul>
+<li>Repeatable Read（可重读）</li>
+</ul>
+</li>
+<li><p>串行化（Serializable）</p>
+<ul>
+<li>Serializable（可串行化）</li>
+</ul>
+</li>
+</ul>
+<p><strong>问题</strong></p>
+<ul>
+<li><p>脏读</p>
+</li>
+<li><p>不可重复读</p>
+</li>
+<li><p>幻读</p>
+</li>
+</ul>
+<h3 id="持久性（Durability）">持久性（Durability）<a class="post-anchor" href="#持久性（Durability）"></a></h3><p><strong>一旦事务正确提交 ，则其所做的修改就会永久保存在数据库中，不能回滚。<br>即使在事务提交之后有了其他故障，即使系统崩溃，事务的处理结果也会得到保存，修改的数据也不会丢失。</strong></p>
+<p><strong>一旦事务完成，就不能返回</strong></p>
+<p><strong>事务完成后所做的改动都会持久化</strong></p>
+<p><strong>Durability(架构)</strong></p>
+<ul>
+<li>架构师、DBA</li>
+</ul>
+</body></html>]]></content>
+  </entry>
+  <entry>
     <title>RBAC权限模型 - 基于角色的访问控制</title>
     <url>/2022/02212221/</url>
     <content><![CDATA[<html><head></head><body><h2 id="以下为-mindmanager-的预览">以下为 mindmanager 的预览<a class="post-anchor" href="#以下为-mindmanager-的预览"></a></h2><!-- TODO:实现搜索框的按键展示(使用页面缩放?或者是弹性相应和直接style) -->
