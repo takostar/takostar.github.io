@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>http://takostar.net/categories/index.html</loc>
+    <loc>http://takostar.net/friends/index.html</loc>
     
     <lastmod>2022-01-29</lastmod>
     
@@ -83,7 +83,7 @@
   </url>
   
   <url>
-    <loc>http://takostar.net/friends/index.html</loc>
+    <loc>http://takostar.net/categories/index.html</loc>
     
     <lastmod>2022-01-29</lastmod>
     
@@ -142,6 +142,13 @@
   </url>
   
   <url>
+    <loc>http://takostar.net/tags/anki/</loc>
+    <lastmod>2022-10-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>http://takostar.net/tags/%E5%8C%BA%E5%9D%97%E9%93%BE/</loc>
     <lastmod>2022-10-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -156,7 +163,7 @@
   </url>
   
   <url>
-    <loc>http://takostar.net/tags/anki/</loc>
+    <loc>http://takostar.net/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</loc>
     <lastmod>2022-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -164,13 +171,6 @@
   
   <url>
     <loc>http://takostar.net/tags/%E6%A2%A6%E5%91%93/</loc>
-    <lastmod>2022-10-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://takostar.net/tags/%E5%88%86%E5%B8%83%E5%BC%8F/</loc>
     <lastmod>2022-10-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
